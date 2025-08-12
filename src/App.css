@@ -1,0 +1,160 @@
+/* Topbar */
+.topbar-flex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 15px;
+    background-color: transparent;
+    position: fixed;
+}
+
+.topbar-h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.topbar-links {
+    display: flex;
+    gap: 20px;
+    margin-left: 50px;
+    flex: 1;
+    font-weight: 100;
+}
+
+.topbar-logo {
+    width: 17px;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 3px;
+}
+
+/* Landing Page Top */
+.my-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 30%;
+    font-size: 20px;
+    left: 80%;
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+/* General Flex Section */
+.general-flex-full {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    background-image: url("./assets/tennis-court.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.general-flex-main-row {
+    display: flex;
+    flex: 1 0 90vh; /* grow and shrink, base height 90vh */
+}
+
+.general-flex-topbar {
+    width: 55%;
+    height: 15vh;
+    background-color: #e9f5f9;
+}
+
+.general-flex-right {
+    align-content: right;
+    width: 5%;
+    background-color: #e9f5f9;
+    height: 90vh;
+}
+
+.general-flex-left {
+    background-color: #e9f5f9;
+    width: 80%;
+    height: 90vh;
+    color: black;
+}
+
+.general-flex-text {
+    margin-top: 30vh;
+    margin-left: 10%;
+    margin-right: 15%;
+}
+
+.general-text-body {
+    font-size: 20px;
+    margin-top: 5vh;
+}
+
+.general-button {
+    padding: 10px;
+    background-color: white;
+    margin-top: 5%;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.general-button:hover {
+    cursor: grab;
+}
+
+.general-flex-bottom {
+    height: 10vh;
+    background-color: #e9f5f9;
+    width: 100%;
+}
+
+/* Gallery Section*/
+
+.gallery-flex-large{
+    width: 100%;
+    background-color: #fff6ed;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.gallery-item-image{
+    width: 100%;
+    height: auto;
+    cursor: grab;
+}
+
+.gallery-item-image-box{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    color: black;
+}
+
+
+/* General */
+.horizontal-bar-white {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.horizontal-bar-black {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
