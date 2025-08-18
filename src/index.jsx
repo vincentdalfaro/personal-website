@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage.jsx';
+import MediaPage from './pages/MediaPage.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <HomePage />
+      <Routes>
+        <Route path = "/" element={<HomePage />}/>
+        <Route path = "/media" element={<MediaPage />}/>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -37,9 +37,11 @@ const HomePage = () => {
       <div className="general-flex-full">
         <div className="general-flex-main-row">
           
+          <div className='general-flex-side'/>
+
           <div className="general-flex-left">
             <div className="general-flex-text">
-              <div style={{ fontSize: "60px" }}>Digital Design</div>
+              <div className='general-flex-header'>Digital Design</div>
 
               <div className="general-text-body">
                 I am a San Francisco based full-stack developer with a passion for my community and work.
@@ -51,7 +53,7 @@ const HomePage = () => {
           </div>
 
           <div className="general-flex-topbar" />
-          <div className="general-flex-right" />
+          <div className="general-flex-side" />
         </div>
 
         <div className="general-flex-bottom" />
@@ -60,12 +62,15 @@ const HomePage = () => {
       <div className='horizontal-bar-black'/>
 
       <div className='gallery-flex-large'>
-        <div style = {{fontSize: "60px", marginTop: "3%", marginLeft: "5%", color: "black"}}>
-            Galleries
-        </div>
         
-        <div style = {{flexDirection: "row", columnGap: "3%", display: "flex", marginTop: "20px", marginLeft: "5%", marginBottom: "5%"}}>
+        <div className='gallery-item-flex'>
+
+          
           <div className='gallery-item-image-box'>
+            <div style = {{fontSize: "60px", marginTop: "3%", color: "black", marginBottom: "3%"}}>
+              Collections
+            </div>
+
             <img src = {TennisTime} className='gallery-item-image'/>
             Tennis
           </div>
