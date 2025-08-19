@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 15px;
+    padding: 15px;
     position: fixed;
 }
 
@@ -65,7 +65,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column; /* stack children vertically */
-    background-image: url("./assets/tennis-court.png");
+    background-image: url("./assets/cover-photos/tennis-court.png");
     background-position: right center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -135,9 +135,10 @@
 
 .gallery-flex-large{
     width: 100%;
-    background-color: #fff6ed;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    padding-bottom: 5vh;
 }
 
 .hamburger-icon {
@@ -166,41 +167,44 @@
 }
 
 
-.gallery-item-flex{
-    flex-direction: row;
+.gallery-item-flex {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-evenly;
-    margin-bottom: 5%;
-}
-
-.gallery-item-image{
+    flex-direction: row;  
+    flex-wrap: wrap;     
+    align-items: flex-end; 
+    gap: 2vw;           
+    justify-content: center;  
     width: 100%;
-    height: auto;
-    cursor: grab;
 }
 
-.gallery-item-image-box{
+
+.gallery-item-image-box {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    justify-content: flex-end;
+    height: 20vw;  
     color: black;
-    margin-top: 1%;
+    padding: 1vh;
+    border-radius: 8px;
+    margin: 1vh 0;
+}
+
+.gallery-item-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    cursor: grab;
 }
 
 
 @media (max-width: 1000px) {
     .gallery-item-image-box{
-        width: 40%;
+        height: 30vw;
     }
 
 }
 
 @media (max-width: 850px) {
-    .gallery-item-image-box{
-        width: 90%;
-    }
 
     .overlay-text{
         left: 30%;
@@ -211,7 +215,7 @@
 
 @media (max-width: 800px) {
     .gallery-item-image-box{
-        width: 90%;
+        height: 60vw;
     }
 
     .general-flex-left {
