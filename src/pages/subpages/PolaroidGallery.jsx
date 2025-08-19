@@ -14,7 +14,7 @@ const BirdGallery = () => {
                         key={index} 
                         src={img} 
                         alt={`Bella ${index}`} 
-                        style={{ width: "33%", margin: "1px"}}
+                        style={{ height: "1vw", margin: "1px"}}
                     />
                 ))}
             </div>
