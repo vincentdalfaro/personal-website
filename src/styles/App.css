@@ -73,6 +73,19 @@
     border-radius: 2px;
 }
 
+.dropdown-menu{
+    position: absolute;
+    top: 20px;
+    left: 75px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    padding: 5px;
+    gap: 2px;
+    border: 2px solid black;
+}
+
 
 /* ===================== */
 /* Utility Classes       */

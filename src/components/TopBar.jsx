@@ -38,9 +38,10 @@ const TopBar = ({backgroundColor, color}) => {
 
                         {hamburgerOpen && (
                             <div className="dropdown-menu">
+                                <Link to="/">Home</Link>
                                 <Link to="/media">Media</Link>
-                                <Link to="/Professional">Projects</Link>
-                                <Link to="/other">Professional</Link>
+                                <Link to="/projects">Projects</Link>
+                                <Link to="/professional">Professional</Link>
                             </div>
                         )}
 
