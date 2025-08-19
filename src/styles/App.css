@@ -1,0 +1,124 @@
+/* ===================== */
+/* Layout Styles         */
+/* ===================== */
+
+/* Gallery Section */
+.gallery-flex-large {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vh;
+}
+
+.gallery-item-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 2vw;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* ===================== */
+/* Component Styles      */
+/* ===================== */
+
+/* Topbar */
+.topbar-flex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+}
+
+.topbar-h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.topbar-links {
+    display: flex;
+    gap: 20px;
+    margin-left: 50px;
+    flex: 1;
+    font-weight: 100;
+}
+
+.topbar-logo {
+    width: 17px;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 3px;
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+
+/* ===================== */
+/* Utility Classes       */
+/* ===================== */
+
+.gallery-item-image-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 20vw;
+    color: black;
+    padding: 1vh;
+    border-radius: 8px;
+    margin: 1vh 0;
+}
+
+.gallery-item-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    cursor: grab;
+}
+
+
+/* ===================== */
+/* Responsive Queries    */
+/* ===================== */
+
+@media (max-width: 1000px) {
+    .gallery-item-image-box {
+        height: 30vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .gallery-item-image-box {
+        height: 60vw;
+    }
+}
+
+@media (max-width: 450px) {
+    .topbar-links {
+        margin-left: 20px;
+    }
+
+    .topbar-flex {
+        margin-left: 0px;
+    }
+}

@@ -14,7 +14,7 @@ const BellaGallery = () => {
                         key={index} 
                         src={img} 
                         alt={`Polaroud ${index}`} 
-                        style={{ width: "33%", margin: "1px"}}
+                        className="bella-photo"
                     />
                 ))}
             </div>

@@ -1,4 +1,5 @@
 import '../App.css';
+import '../styles/Home.css'
 import TopBar from '../components/TopBar.jsx';
 import Tree from "../assets/cover-photos/tree.jpg";
 import TennisTime from "../assets/cover-photos/tennis-time.jpg";
@@ -33,8 +34,8 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div className="photo-container">
+      
+      <div className="home-one-container">
         <TopBar
           backgroundColor={scrolled ? "black" : "transparent"}
         />

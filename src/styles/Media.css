@@ -1,0 +1,44 @@
+.gallery-flex-full{
+    display: flex;
+    color: black;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 10vh;
+    align-items: center;
+    align-content: flex-end;
+    background-color: white;
+}
+
+.bella-photo{
+    height: 30vw;
+    margin: 1%;
+}
+
+.bird-photo{
+    width: 45%;
+    margin: 1%
+}
+
+.polaroid-photo{
+    height: 40vw;
+    margin: 1%;
+}
+
+@media (max-width: 1000px){
+    .bird-photo{
+        width: 90%;
+    }
+}
+
+@media(max-width: 800px){
+    .bella-photo{
+        height: auto;
+        width: 90%;
+    }
+
+    .polaroid-photo{
+        height: auto;
+        width: 90%;
+    }
+}

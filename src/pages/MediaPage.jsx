@@ -7,6 +7,7 @@ import PeopleCover from "../assets/cover-photos/people.jpg"
 import BellaCover from "../assets/cover-photos/bella.jpg"
 import VideoCover from "../assets/cover-photos/video.jpg"
 import DigitalCover from "../assets/cover-photos/digital.jpg"
+import '../styles/Media.css'
 
 import { Link} from 'react-router-dom';
 
@@ -15,17 +16,7 @@ const MediaPage = () => {
         <div>
             <TopBar backgroundColor = {"black"} />
 
-            <div style={{
-                display: "flex",
-                color: "black",
-                width: "100%",
-                height: "100vh", // take full viewport height
-                flexDirection: "column",
-                paddingTop: "10vh",
-                alignItems: "center",     // horizontal centering
-                alignContent: "flex-end",
-                backgroundColor: "white"
-            }}>
+            <div className="gallery-flex-full">
                 <div style = {{fontSize: "70px", paddingBottom: "2vh"}}>
                     Galleries
                 </div>

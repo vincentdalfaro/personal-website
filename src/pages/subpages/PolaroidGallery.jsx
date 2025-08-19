@@ -1,7 +1,7 @@
 import TopBar from "../../components/TopBar.jsx";
 
 
-const imageModules = import.meta.glob('../../assets/bella/*.{jpg,JPG,jpeg,JPEG,png,PNG,svg,SVG,heic,HEIC}', { eager: true });
+const imageModules = import.meta.glob('../../assets/polaroids/*.{jpg,JPG,jpeg,JPEG,png,PNG,svg,SVG,heic,HEIC}', { eager: true });
 const images = Object.values(imageModules).map(mod => mod.url || mod.default || mod);
 
 const BirdGallery = () => {
@@ -13,8 +13,8 @@ const BirdGallery = () => {
                     <img 
                         key={index} 
                         src={img} 
-                        alt={`Bella ${index}`} 
-                        style={{ height: "1vw", margin: "1px"}}
+                        alt={`Polaroid ${index}`} 
+                        className="polaroid-photo"
                     />
                 ))}
             </div>
