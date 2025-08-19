@@ -46,10 +46,10 @@ const MediaPage = () => {
                         Film
                     </Link>
             
-                    <div className='gallery-item-image-box'>
+                    <Link to="/media/polaroids" className='gallery-item-image-box'>
                         <img src = {PolaroidCover} className='gallery-item-image'/>
                         Polaroids
-                    </div>
+                    </Link>
                     
                     <div className='gallery-item-image-box'>
                         <img src = {DigitalCover} className='gallery-item-image'/>
@@ -61,10 +61,10 @@ const MediaPage = () => {
                         People
                     </div>
 
-                    <div className='gallery-item-image-box'>
+                    <Link to="/media/bella" className='gallery-item-image-box'>
                         <img src = {BellaCover} className='gallery-item-image'/>
                         Bella
-                    </div>
+                    </Link>
                 </div>  
             </div>
 
