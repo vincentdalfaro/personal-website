@@ -1,4 +1,4 @@
-import '../App.css';
+import '../styles/App.css';
 import '../styles/Home.css'
 import TopBar from '../components/TopBar.jsx';
 import Tree from "../assets/cover-photos/tree.jpg";
