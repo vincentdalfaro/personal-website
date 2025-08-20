@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Hamburger from 'hamburger-react'
 
 
-const TopBar = ({backgroundColor, color}) => {
+const TopBar = ({backgroundColor, color, mobileBackground}) => {
 
     const isSmall = UseResponsive(650)
     const isMobile = UseResponsive(451)
@@ -32,7 +32,7 @@ const TopBar = ({backgroundColor, color}) => {
                         <Hamburger toggled={hamburgerOpen} toggle={setHamburgerOpen}/>
 
                         {hamburgerOpen && (
-                            <div className='dropdown-menu'>
+                            <div className='dropdown-menu' style = {{backgroundColor: mobileBackground}}>
                                 <Link to="/">Home</Link>
                                 <Link to="/media">Media</Link>
                                 <Link to="/projects">Projects</Link>

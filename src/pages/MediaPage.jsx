@@ -14,7 +14,7 @@ import { Link} from 'react-router-dom';
 const MediaPage = () => {
     return (
         <div>
-            <TopBar backgroundColor = {"black"} />
+            <TopBar backgroundColor = {"black"} mobileBackground = {"black"}/>
 
             <div className="gallery-flex-full">
                 <div style = {{fontSize: "70px", paddingBottom: "2vh"}}>

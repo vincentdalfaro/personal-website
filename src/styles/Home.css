@@ -167,4 +167,21 @@
         font-size: 20px;
         margin-top: 5vh;
     }
+
+    .general-flex-full {
+        background: none; /* remove bg image and attachment */
+        position: relative; /* ensure relative for ::before */
+    }
+
+    .general-flex-full::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: url("../assets/cover-photos/tennis-court.png");
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;  /* behind content */
+        pointer-events: none; /* click-through */
+    }
 }
