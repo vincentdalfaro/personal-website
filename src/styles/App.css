@@ -103,7 +103,7 @@
 
 @media (max-width: 800px) {
     .gallery-item-image-box {
-        height: 60vw;
+        height: 40vh;
     }
 }
 
