@@ -58,10 +58,11 @@ const HomePage = () => {
       {/* Divider — tracked via ref */}
       <div className="horizontal-bar-black" ref={dividerRef} />
 
-      <div className="general-flex-full">
-        <div className="general-flex-main-row">
+      <div className= {"general-flex-full"}>
+        <div className="parallax-bg" />
+        
+        <div className="general-flex-main-row content">
           <div className='general-flex-side' />
-
           <div className="general-flex-left">
             <div className="general-flex-text">
               <div className='general-flex-header'>Digital Design</div>
