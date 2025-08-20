@@ -20,14 +20,18 @@ const HomePage = () => {
       const rect = dividerRef.current.getBoundingClientRect();
       const dividerTop = rect.top;
 
-      // When the black bar reaches (or passes) the top of the viewport
+      // Keep original setScrolled behavior
       if (dividerTop <= 70) {
         setScrolled(true);
-        setScrolledBackground(true)
-      } 
-
-      else {
+      } else {
         setScrolled(false);
+      }
+
+      // New logic for background range between 70 and 150 scroll
+      if (dividerTop <= 70 && dividerTop > -80) {
+        setScrolledBackground(true);
+      } else {
+        setScrolledBackground(false);
       }
     };
 
@@ -62,7 +66,7 @@ const HomePage = () => {
       {/* Divider — tracked via ref */}
       <div className="horizontal-bar-black" ref={dividerRef} />
 
-      <div className= "general-flex-full">
+      <div className= {scrolledBackground ? "general-flex-full-mobile" : "general-flex-full"}>
         
         <div className="general-flex-main-row">
           <div className='general-flex-side' />

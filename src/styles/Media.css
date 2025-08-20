@@ -30,6 +30,10 @@
     padding-top: 5vh;
 }
 
+.gallery-flex-subpage{
+    padding-top: 10vh;
+}
+
 @media (max-width: 1000px){
     .bird-photo{
         width: 90%;
@@ -50,6 +54,10 @@
 
 @media(max-width: 450px){
     .gallery-flex-subpage{
-        padding-top: 15vh;
+        padding-top: 12vh;
+    }
+    
+    .gallery-flex-full{
+        padding-top: 25%;
     }
 }

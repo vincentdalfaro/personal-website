@@ -7,7 +7,7 @@ const images = Object.values(imageModules).map(mod => mod.url || mod.default || 
 const BellaGallery = () => {
     return (
         <div>
-            <TopBar backgroundColor={"black"} />
+            <TopBar backgroundColor={"black"} mobileBackground = {"#333333"} mobileBorder = {"2px solid #999999"}/>
             <div className="gallery-item-flex gallery-flex-subpage">
                 {images.map((img, index) => (
                     <img 
