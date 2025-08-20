@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 5vh;
+    padding-top: 12vh;
 }
 
 .gallery-item-flex {
@@ -105,6 +106,10 @@
     .gallery-item-image-box {
         width: 70%;
         height: auto;
+    }
+
+    .gallery-flex-large{
+        padding-top: 0;
     }
 }
 

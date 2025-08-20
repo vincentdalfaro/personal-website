@@ -34,7 +34,6 @@ const HomePage = () => {
 
   return (
     <div>
-      
       <div className="home-one-container">
         <TopBar
           backgroundColor={scrolled ? "black" : "transparent"}
@@ -84,7 +83,7 @@ const HomePage = () => {
       <div className='horizontal-bar-black' />
 
       <div className='gallery-flex-large'>
-        <div className='gallery-item-flex' style={{ paddingTop: "15vh" }}>
+        <div className='gallery-item-flex'>
           <div className='gallery-item-image-box'>
             <div style={{ fontSize: "60px", color: "black" }}>
               Collections
