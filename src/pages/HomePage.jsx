@@ -12,33 +12,40 @@ const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [scrolledBackground, setScrolledBackground] = useState(false)
   const dividerRef = useRef(null);
+  const headerRef = useRef(null); // Add this
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!dividerRef.current) return;
+    if (!dividerRef.current || !headerRef.current) return;
 
-      const rect = dividerRef.current.getBoundingClientRect();
-      const dividerTop = rect.top;
+    const dividerTop = dividerRef.current.getBoundingClientRect().top;
+    const headerBottom = headerRef.current.getBoundingClientRect().bottom;
 
-      // Keep original setScrolled behavior
-      if (dividerTop <= 70) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+    // 1. Show background when horizontal bar hits top of screen
+    const showBackground = dividerTop <= 0;
 
-      // New logic for background range between 70 and 150 scroll
-      if (dividerTop <= 70 && dividerTop > -80) {
-        setScrolledBackground(true);
-      } else {
-        setScrolledBackground(false);
-      }
-    };
+    // 2. Hide background when header is fully in view (bottom has entered viewport)
+    const hideBackground = headerBottom <= window.innerHeight;
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Original setScrolled logic
+    if (dividerTop <= 70) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    // Background active only between those two moments
+    if (showBackground && !hideBackground) {
+      setScrolledBackground(true);
+    } else {
+      setScrolledBackground(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Run on mount
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   return (
     <div>
@@ -72,7 +79,7 @@ const HomePage = () => {
           <div className='general-flex-side' />
           <div className="general-flex-left">
             <div className="general-flex-text">
-              <div className='general-flex-header'>Digital Design</div>
+              <div className='general-flex-header' ref={headerRef}>Digital Design</div>
               <div className="general-text-body">
                 I am a San Francisco based full-stack developer with a passion for my community and work.
                 I am always open to meaningful collaborative projects as well as any opportunity to talk.
