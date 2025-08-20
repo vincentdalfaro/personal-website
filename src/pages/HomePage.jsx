@@ -20,7 +20,7 @@ const HomePage = () => {
       const dividerTop = rect.top;
 
       // When the black bar reaches (or passes) the top of the viewport
-      if (dividerTop <= 0) {
+      if (dividerTop <= 70) {
         setScrolled(true);
       } else {
         setScrolled(false);
