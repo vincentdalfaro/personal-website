@@ -168,12 +168,12 @@
         margin-top: 5vh;
     }
 
-    .general-flex-full-mobile {
+    .general-flex-full {
         background: none; /* remove bg image and attachment */
         position: relative; /* ensure relative for ::before */
     }
 
-    .general-flex-full-mobile::before {
+    .general-flex-full::before {
         content: "";
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
