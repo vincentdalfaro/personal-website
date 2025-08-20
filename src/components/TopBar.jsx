@@ -3,6 +3,7 @@ import LinkedinLogo from '../assets/logos/LinkedIn-logo.png'
 import TennisLogo from "../assets/logos/tennis-logo.png"
 import UseResponsive from '../hooks/UseResponsive';
 import { useState } from 'react';
+import Hamburger from 'hamburger-react'
 
 
 const TopBar = ({backgroundColor, color}) => {
@@ -10,10 +11,6 @@ const TopBar = ({backgroundColor, color}) => {
     const isSmall = UseResponsive(650)
     const isMobile = UseResponsive(451)
     const [hamburgerOpen, setHamburgerOpen] = useState(false) 
-    
-    const hamburgerClick = () => {
-        setHamburgerOpen(prev => !prev);
-    };
 
 
     return (
@@ -32,12 +29,10 @@ const TopBar = ({backgroundColor, color}) => {
 
                 {isMobile ? (
                     <div className='topbar-links'>
-                        <div className="hamburger-icon" onClick={hamburgerClick}>
-                            <span/><span/><span/>
-                        </div>
+                        <Hamburger toggled={hamburgerOpen} toggle={setHamburgerOpen}/>
 
                         {hamburgerOpen && (
-                            <div className="dropdown-menu">
+                            <div className='dropdown-menu'>
                                 <Link to="/">Home</Link>
                                 <Link to="/media">Media</Link>
                                 <Link to="/projects">Projects</Link>

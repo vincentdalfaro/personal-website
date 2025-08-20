@@ -56,34 +56,16 @@
     padding: 3px;
 }
 
-/* Hamburger Icon */
-.hamburger-icon {
-    width: 30px;
-    height: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.hamburger-icon span {
-    display: block;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-}
-
 .dropdown-menu{
     position: absolute;
-    top: 20px;
-    left: 75px;
+    top: 25px;
+    left: 70px;
     display: flex;
     flex-direction: column;
-    color: black;
-    background-color: white;
     padding: 5px;
+    font-size: 20px;
     gap: 2px;
-    border: 2px solid black;
+    border: 2px solid white
 }
 
 
@@ -128,10 +110,11 @@
 
 @media (max-width: 450px) {
     .topbar-links {
-        margin-left: 20px;
+        margin-left: 10px;
+        gap: 0;
     }
 
     .topbar-flex {
-        margin-left: 0px;
+        padding-left: 0;
     }
 }
