@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from 'react';
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrolledBackground, setScrolledBackground] = useState(false)
   const dividerRef = useRef(null);
 
   useEffect(() => {
@@ -22,8 +23,19 @@ const HomePage = () => {
       // When the black bar reaches (or passes) the top of the viewport
       if (dividerTop <= 70) {
         setScrolled(true);
-      } else {
+        setScrolledBackground(true)
+      } 
+
+      else {
         setScrolled(false);
+      }
+
+      if (dividerTop > 1000){
+        setScrolledBackground(false)
+      }
+
+      else{
+        setScrolledBackground(false)
       }
     };
 
@@ -58,10 +70,9 @@ const HomePage = () => {
       {/* Divider — tracked via ref */}
       <div className="horizontal-bar-black" ref={dividerRef} />
 
-      <div className= {"general-flex-full"}>
-        <div className="parallax-bg" />
+      <div className= {scrolledBackground ? "general-flex-full-mobile" : "general-flex-full"}>
         
-        <div className="general-flex-main-row content">
+        <div className="general-flex-main-row">
           <div className='general-flex-side' />
           <div className="general-flex-left">
             <div className="general-flex-text">
