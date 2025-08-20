@@ -8,7 +8,7 @@ const BellaGallery = () => {
     return (
         <div>
             <TopBar backgroundColor={"black"} />
-            <div className="gallery-item-flex" style = {{gap: "0", paddingTop: "8vh"}}>
+            <div className="gallery-item-flex gallery-flex-subpage">
                 {images.map((img, index) => (
                     <img 
                         key={index} 

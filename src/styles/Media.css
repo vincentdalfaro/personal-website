@@ -25,6 +25,11 @@
     margin: 1%;
 }
 
+.gallery-flex-subpage{
+    gap: 0;
+    padding-top: 5vh;
+}
+
 @media (max-width: 1000px){
     .bird-photo{
         width: 90%;
@@ -40,5 +45,11 @@
     .polaroid-photo{
         height: auto;
         width: 90%;
+    }
+}
+
+@media(max-width: 450px){
+    .gallery-flex-subpage{
+        padding-top: 15vh;
     }
 }
