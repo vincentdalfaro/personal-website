@@ -1,0 +1,25 @@
+import TopBar from "../../components/TopBar.jsx";
+
+
+// const imageModules = import.meta.glob('../../assets/collections/polaroids/*.{jpg,JPG,jpeg,JPEG,png,PNG,svg,SVG,heic,HEIC}');
+// const images = Object.values(imageModules).map(mod => mod.url || mod.default || mod);
+
+const BirdGallery = () => {
+    return (
+        <div>
+            {/* <TopBar backgroundColor={"black"} mobileBackground = {"#333333"} mobileBorder = {"2px solid #999999"}/>
+            <div className="gallery-item-flex gallery-flex-subpage">
+                {images.map((img, index) => (
+                    <img 
+                        key={index} 
+                        src={img} 
+                        alt={`Polaroid ${index}`} 
+                        className="polaroid-photo"
+                    />
+                ))}
+            </div> */}
+        </div>
+    );
+};
+
+export default BirdGallery;

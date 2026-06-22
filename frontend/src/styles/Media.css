@@ -1,0 +1,301 @@
+/* ===============================
+   GLOBAL CONTAINER STYLES
+=================================*/
+
+.gallery-flex-full {
+    display: flex;
+    flex-direction: row;
+    width: 100vw; /* Make each slide exactly viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f4f7;
+    color: black;
+    scroll-snap-align: start; /* Snap to this slide */
+    flex-shrink: 0; /* Prevent flexbox from shrinking the slide */
+    align-items: center;
+}
+
+
+
+/* ===============================
+   HORIZONTAL SCROLL CONTAINER
+=================================*/
+
+.horizontal-scroll-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ===============================
+   LEFT SIDE: IMAGE DISPLAY
+=================================*/
+
+.gallery-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+.gallery-cover {
+    height: 60vh;
+    width: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-cover:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item-header {
+    font-size: 30px;
+    color: black;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* ===============================
+   RIGHT SIDE: TEXT CONTENT
+=================================*/
+
+.gallery-right {
+    width: 60%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-header {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.media-page-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    width: 90%;
+    height: auto;
+}
+
+/* ===============================
+   IMAGE COLLECTION STYLES
+=================================*/
+
+.bella-photo,
+.bella-photo-gallery {
+    height: 30vw;
+    margin: 1%;
+}
+
+.polaroid-photo {
+    height: 40vw;
+    margin: 1%;
+}
+
+.bird-photo {
+    width: 100%;
+    display: block;
+}
+
+/* ===============================
+   COLLECTION CHOICE / GALLERY GRID
+=================================*/
+
+.gallery-collection-choice {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin: 1dvh;
+    font-size: 20px;
+    color: black;
+}
+
+/* ===============================
+   CAPTION OVERLAY ON HOVER
+=================================*/
+
+.caption-overlay-wrapper {
+    position: relative;
+    display: block;
+    width: 45%;
+    margin: 1%;
+}
+
+.caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(80, 80, 80, 0.75);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    padding: 6px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+.caption-overlay-wrapper:hover .caption-overlay {
+    opacity: 1;
+}
+
+.next-button {
+  margin-top: 40px;
+  padding: 12px 24px;
+  font-size: 25px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  
+  background-color: transparent;
+  justify-content: center;
+}
+
+
+/* ===============================
+   RESPONSIVE DESIGN
+=================================*/
+
+@media (max-width: 1000px) {
+
+     .horizontal-scroll-container {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+    }
+
+
+    .gallery-flex-full {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .gallery-right {
+        width: 90%;
+        padding: 5% 10% 0% 10%;
+        align-items: center;
+    }
+
+    .gallery-left{
+        padding: 120px 10% 0% 10%;
+        align-items: center;
+        width: 40vh;
+    }
+
+    .next-button{
+        margin-top: 0;
+    }
+
+    .media-header {
+        margin-bottom: 0;
+    }
+
+    .gallery-cover {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .gallery-item-header {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .media-header {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .media-page-description {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .caption-overlay-wrapper {
+        width: 90%;
+    }
+
+    .next-button {
+        align-self: center;
+        margin-top: 30px;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .bella-photo,
+    .polaroid-photo {
+        height: auto;
+        width: 90%;
+    }
+
+    .gallery-left{
+        height: 40dvh;
+    }
+}
+
+@media (max-width: 650px) {
+    .gallery-collection-choice {
+        flex-wrap: wrap;
+    }
+
+    .gallery-left{
+        width: 50%;
+    }
+}
+
+@media (max-width: 450px) {
+    .gallery-flex-subpage {
+        padding-top: 12vh;
+    }
+
+    .gallery-flex-full {
+        padding-top: 25%;
+    }
+
+    .gallery-left{
+        width: 50%;
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+
+    .media-header {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .next-button{
+        margin-top: 0;
+    }
+}
