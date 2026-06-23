@@ -194,6 +194,8 @@
         flex-direction: column;
         height: 100dvh;
         justify-content: center;
+        padding-top: 67px;
+        box-sizing: border-box;
     }
 
     .gallery-right {
