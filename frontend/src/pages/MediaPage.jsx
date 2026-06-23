@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TopBar from "../components/TopBar.jsx";
 import TennisCover from "../assets/cover-photos/tennis-time.jpg";
@@ -40,10 +40,25 @@ const sections = [
 const MediaPage = () => {
 
   const isSmallScreen = useResponsive(1000)
-
   const scrollRef = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (scrollRef.current) {
+        if (window.innerWidth <= 1000) {
+          scrollRef.current.scrollTo({ top: currentIndex * window.innerHeight, left: 0 });
+        } else {
+          scrollRef.current.scrollTo({ left: currentIndex * window.innerWidth, top: 0 });
+        }
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentIndex]);
 
   const scrollToNext = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
     if (scrollRef.current) {
       if (isSmallScreen) {
         scrollRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
@@ -54,6 +69,7 @@ const MediaPage = () => {
   };
 
   const scrollToPrev = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
     if (scrollRef.current) {
       if (isSmallScreen) {
         scrollRef.current.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
