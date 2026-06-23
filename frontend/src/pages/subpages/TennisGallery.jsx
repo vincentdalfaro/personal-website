@@ -9,9 +9,23 @@ const FOLDERS = [
 
 const TennisGallery = () => {
   const [selectedSet, setSelectedSet] = useState("film");
+  const [activeTab, setActiveTab] = useState("film");
+  const [switching, setSwitching] = useState(false);
   const { images, loading } = useCloudinaryFolder(FOLDERS);
 
   const currentImages = images[`personal_website/tennis/${selectedSet}`] ?? [];
+
+  const handleSetChange = (set) => {
+    if (set === activeTab) return;
+    setActiveTab(set);
+    setSwitching(true);
+    setTimeout(() => {
+      setSelectedSet(set);
+      setSwitching(false);
+    }, 300);
+  };
+
+  const isLoading = loading || switching;
 
   return (
     <div>
@@ -23,22 +37,24 @@ const TennisGallery = () => {
       <div className="gallery-item-flex gallery-flex-subpage">
         <div className="gallery-collection-choice">
           <div
-            onClick={() => setSelectedSet("film")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "film" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("film")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "film" ? "bold" : "normal" }}
           >
             Film
           </div>
           |
           <div
-            onClick={() => setSelectedSet("digital")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "digital" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("digital")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "digital" ? "bold" : "normal" }}
           >
             Digital
           </div>
         </div>
 
-        {loading ? (
-          <p>Loading...</p>
+        {isLoading ? (
+          <div className="loading-container">
+            <div className="loading-spinner" />
+          </div>
         ) : (
           currentImages.map((publicId, index) => (
             <img

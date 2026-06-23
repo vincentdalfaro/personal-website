@@ -10,9 +10,23 @@ const FOLDERS = [
 
 const FilmGallery = () => {
   const [selectedSet, setSelectedSet] = useState("pre2025");
+  const [activeTab, setActiveTab] = useState("pre2025");
+  const [switching, setSwitching] = useState(false);
   const { images, loading } = useCloudinaryFolder(FOLDERS);
 
   const currentImages = images[`personal_website/film/${selectedSet}`] ?? [];
+
+  const handleSetChange = (set) => {
+    if (set === activeTab) return;
+    setActiveTab(set);
+    setSwitching(true);
+    setTimeout(() => {
+      setSelectedSet(set);
+      setSwitching(false);
+    }, 300);
+  };
+
+  const isLoading = loading || switching;
 
   return (
     <div>
@@ -24,29 +38,31 @@ const FilmGallery = () => {
       <div className="gallery-item-flex gallery-flex-subpage">
         <div className="gallery-collection-choice">
           <div
-            onClick={() => setSelectedSet("pre2025")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "pre2025" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("pre2025")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "pre2025" ? "bold" : "normal" }}
           >
             Pre-2025
           </div>
           |
           <div
-            onClick={() => setSelectedSet("2025")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "2025" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("2025")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "2025" ? "bold" : "normal" }}
           >
             2025
           </div>
           |
           <div
-            onClick={() => setSelectedSet("2026")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "2026" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("2026")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "2026" ? "bold" : "normal" }}
           >
             2026
           </div>
         </div>
 
-        {loading ? (
-          <p>Loading...</p>
+        {isLoading ? (
+          <div className="loading-container">
+            <div className="loading-spinner" />
+          </div>
         ) : (
           currentImages.map((publicId, index) => (
             <img

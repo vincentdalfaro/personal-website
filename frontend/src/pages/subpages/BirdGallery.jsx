@@ -10,6 +10,8 @@ const FOLDERS = [
 
 const BirdGallery = () => {
   const [selectedSet, setSelectedSet] = useState("pre2026");
+  const [activeTab, setActiveTab] = useState("pre2026");
+  const [switching, setSwitching] = useState(false);
   const { images, loading } = useCloudinaryFolder(FOLDERS);
 
   const currentImages = images[
@@ -17,6 +19,18 @@ const BirdGallery = () => {
       ? "personal_website/birds/pre2026"
       : "personal_website/birds/2026"
   ] ?? [];
+
+  const handleSetChange = (set) => {
+    if (set === activeTab) return;
+    setActiveTab(set);
+    setSwitching(true);
+    setTimeout(() => {
+      setSelectedSet(set);
+      setSwitching(false);
+    }, 300);
+  };
+
+  const isLoading = loading || switching;
 
   return (
     <div>
@@ -28,22 +42,24 @@ const BirdGallery = () => {
       <div className="gallery-item-flex gallery-flex-subpage">
         <div className="gallery-collection-choice">
           <div
-            onClick={() => setSelectedSet("pre2026")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "pre2026" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("pre2026")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "pre2026" ? "bold" : "normal" }}
           >
             Pre-2026
           </div>
           |
           <div
-            onClick={() => setSelectedSet("2026")}
-            style={{ cursor: "pointer", fontWeight: selectedSet === "2026" ? "bold" : "normal" }}
+            onClick={() => handleSetChange("2026")}
+            style={{ cursor: "pointer", fontWeight: activeTab === "2026" ? "bold" : "normal" }}
           >
             2026
           </div>
         </div>
 
-        {loading ? (
-          <p>Loading...</p>
+        {isLoading ? (
+          <div className="loading-container">
+            <div className="loading-spinner" />
+          </div>
         ) : (
           currentImages.map((publicId, index) => {
             const filename = publicId.split("/").pop() + ".jpg";
