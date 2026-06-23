@@ -10,7 +10,6 @@ import ArrowUp from "../assets/logos/arrow-up.png"
 import ArrowDown from "../assets/logos/arrow-down.png"
 import useResponsive from '../hooks/UseResponsive.jsx';
 
-
 import '../styles/Media.css';
 
 const sections = [
@@ -47,9 +46,10 @@ const MediaPage = () => {
     const handleResize = () => {
       if (scrollRef.current) {
         if (window.innerWidth <= 1000) {
-          scrollRef.current.scrollTo({ top: currentIndex * window.innerHeight, left: 0 });
+          const slideHeight = scrollRef.current.firstElementChild.offsetHeight;
+          scrollRef.current.scrollTo({ top: currentIndex * slideHeight, left: 0, behavior: 'instant' });
         } else {
-          scrollRef.current.scrollTo({ left: currentIndex * window.innerWidth, top: 0 });
+          scrollRef.current.scrollTo({ left: currentIndex * window.innerWidth, top: 0, behavior: 'instant' });
         }
       }
     };
@@ -61,7 +61,8 @@ const MediaPage = () => {
     setCurrentIndex((prev) => Math.min(prev + 1, sections.length - 1));
     if (scrollRef.current) {
       if (isSmallScreen) {
-        scrollRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        const slideHeight = scrollRef.current.firstElementChild.offsetHeight;
+        scrollRef.current.scrollBy({ top: slideHeight, behavior: 'smooth' });
       } else {
         scrollRef.current.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
       }
@@ -72,7 +73,8 @@ const MediaPage = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
     if (scrollRef.current) {
       if (isSmallScreen) {
-        scrollRef.current.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        const slideHeight = scrollRef.current.firstElementChild.offsetHeight;
+        scrollRef.current.scrollBy({ top: -slideHeight, behavior: 'smooth' });
       } else {
         scrollRef.current.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
       }
@@ -95,12 +97,11 @@ const MediaPage = () => {
         {sections.map((section, index) => (
           <div className="gallery-flex-full" key={index}>
 
-            {/* Show Left Button if NOT on the first slide */}
             {index > 0 && (
               <button className="next-button" onClick={scrollToPrev}>
                 {isSmallScreen ? 
-                    <img src={ArrowUp} style={{ width: "20px" }} alt="Scroll Down" /> 
-                    : <img src={ArrowLeft} style={{ width: "20px" }} alt="Scroll Right" />
+                    <img src={ArrowUp} style={{ width: "20px" }} alt="Scroll Up" /> 
+                    : <img src={ArrowLeft} style={{ width: "20px" }} alt="Scroll Left" />
                 }
               </button>
             )}
@@ -120,7 +121,6 @@ const MediaPage = () => {
                 <p className="media-page-description">{section.description}</p>
             </div>
 
-            {/* Show Right Button if NOT on the last slide */}
             {index < sections.length - 1 && (
               <button className="next-button" onClick={scrollToNext}>
                 {isSmallScreen ? 
@@ -136,6 +136,5 @@ const MediaPage = () => {
     </div>
   );
 };
-
 
 export default MediaPage;
