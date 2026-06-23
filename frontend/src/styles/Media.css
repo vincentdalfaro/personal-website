@@ -192,8 +192,7 @@
 
    .gallery-flex-full {
         flex-direction: column;
-        height: calc(100dvh - 67px);
-        padding-top: 67px;
+        height: 100dvh;
         justify-content: center;
     }
 
