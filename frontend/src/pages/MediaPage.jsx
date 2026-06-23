@@ -45,23 +45,23 @@ const MediaPage = () => {
 
   const scrollToNext = () => {
     if (scrollRef.current) {
-        if (!isSmallScreen) {
+      if (isSmallScreen) {
         scrollRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-        } else {
+      } else {
         scrollRef.current.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-        }
+      }
     }
-    };
+  };
 
-    const scrollToPrev = () => {
+  const scrollToPrev = () => {
     if (scrollRef.current) {
-        if (isSmallScreen) {
+      if (isSmallScreen) {
         scrollRef.current.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-        } else {
+      } else {
         scrollRef.current.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-        }
+      }
     }
-    };
+  };
 
   return (
     <div>

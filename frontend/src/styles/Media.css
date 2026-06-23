@@ -189,10 +189,15 @@
         scroll-snap-type: y mandatory;
     }
 
+    .gallery-flex-full:first-child {
+        justify-content: center;
+    }
 
-    .gallery-flex-full {
+
+   .gallery-flex-full {
         flex-direction: column;
-        height: auto;
+        height: calc(100dvh - 67px);
+        padding-top: 67px;
     }
 
     .gallery-right {
@@ -202,7 +207,7 @@
     }
 
     .gallery-left{
-        padding: 120px 10% 0% 10%;
+        padding: 50px 10% 0% 10%;
         align-items: center;
         width: 40vh;
     }

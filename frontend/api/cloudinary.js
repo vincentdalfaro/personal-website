@@ -25,7 +25,10 @@ const url = `https://api.cloudinary.com/v1_1/${cloudName}/resources/image/upload
       return res.status(500).json({ error: "Cloudinary request failed", details: data });
     }
 
-    const publicIds = data.resources.map((resource) => resource.public_id);
+    const publicIds = data.resources
+    .filter((resource) => resource.asset_folder === folder)
+    .map((resource) => resource.public_id);
+
     return res.status(200).json(publicIds);
 
   } catch (error) {

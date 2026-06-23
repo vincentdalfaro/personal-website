@@ -1,52 +1,22 @@
 import { birdCaptions } from "../../data/BirdCaptions.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TopBar from "../../components/TopBar.jsx";
+import { useCloudinaryFolder, getCloudinaryUrl } from "../../hooks/useCloudinaryFolder.js";
 
-const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-
-async function fetchFolder(folder) {
-  const res = await fetch(`/api/cloudinary?folder=${folder}`);
-  const data = await res.json();
-  return data;
-}
-
-function getCloudinaryUrl(publicId) {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_auto/${publicId}`;
-}
-
-function renderBirdImage(publicId, index, birdCaptions) {
-  const filename = publicId.split("/").pop() + ".jpg";
-  const caption = birdCaptions[filename] || "Unknown Bird";
-
-  return (
-    <div className="caption-overlay-wrapper" key={index}>
-      <img src={getCloudinaryUrl(publicId)} alt={caption} className="bird-photo" />
-      <div className="caption-overlay">{caption}</div>
-    </div>
-  );
-}
+const FOLDERS = [
+  "personal_website/birds/pre2026",
+  "personal_website/birds/2026",
+];
 
 const BirdGallery = () => {
   const [selectedSet, setSelectedSet] = useState("pre2026");
-  const [pre2026Images, setPre2026Images] = useState([]);
-  const [_2026Images, set2026Images] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { images, loading } = useCloudinaryFolder(FOLDERS);
 
-  useEffect(() => {
-    async function load() {
-      setLoading(true);
-      const [pre, cur] = await Promise.all([
-        fetchFolder("personal_website/birds/pre2026"),
-        fetchFolder("personal_website/birds/2026"),
-      ]);
-      setPre2026Images(pre);
-      set2026Images(cur);
-      setLoading(false);
-    }
-    load();
-  }, []);
-
-  const images = selectedSet === "pre2026" ? pre2026Images : _2026Images;
+  const currentImages = images[
+    selectedSet === "pre2026"
+      ? "personal_website/birds/pre2026"
+      : "personal_website/birds/2026"
+  ] ?? [];
 
   return (
     <div>
@@ -55,7 +25,6 @@ const BirdGallery = () => {
         mobileBackground={"#333333"}
         mobileBorder={"2px solid #999999"}
       />
-
       <div className="gallery-item-flex gallery-flex-subpage">
         <div className="gallery-collection-choice">
           <div
@@ -76,7 +45,16 @@ const BirdGallery = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          images.map((id, index) => renderBirdImage(id, index, birdCaptions))
+          currentImages.map((publicId, index) => {
+            const filename = publicId.split("/").pop() + ".jpg";
+            const caption = birdCaptions[filename] || "Unknown Bird";
+            return (
+              <div className="caption-overlay-wrapper" key={index}>
+                <img src={getCloudinaryUrl(publicId)} alt={caption} className="bird-photo" />
+                <div className="caption-overlay">{caption}</div>
+              </div>
+            );
+          })
         )}
       </div>
     </div>

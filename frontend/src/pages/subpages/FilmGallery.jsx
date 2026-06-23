@@ -1,24 +1,65 @@
+import { useState } from "react";
 import TopBar from "../../components/TopBar.jsx";
+import { useCloudinaryFolder, getCloudinaryUrl } from "../../hooks/useCloudinaryFolder.js";
 
-// const imageModules = import.meta.glob('../../assets/collections/film/*.{jpg,JPG,jpeg,JPEG,png,PNG,svg,SVG,heic,HEIC}');
-// const images = Object.values(imageModules).map(mod => mod.url || mod.default || mod);
+const FOLDERS = [
+  "personal_website/film/pre2025",
+  "personal_website/film/2025",
+  "personal_website/film/2026",
+];
 
 const FilmGallery = () => {
-    return (
-        <div>
-            {/* <TopBar backgroundColor={"black"} mobileBackground = {"#333333"} mobileBorder = {"2px solid #999999"}/>
-            <div className="gallery-item-flex gallery-flex-subpage">
-                {images.map((img, index) => (
-                    <img 
-                        key={index} 
-                        src={img} 
-                        alt={`Polaroid ${index}`} 
-                        className="bella-photo"
-                    />
-                ))}
-            </div> */}
+  const [selectedSet, setSelectedSet] = useState("pre2025");
+  const { images, loading } = useCloudinaryFolder(FOLDERS);
+
+  const currentImages = images[`personal_website/film/${selectedSet}`] ?? [];
+
+  return (
+    <div>
+      <TopBar
+        backgroundColor={"black"}
+        mobileBackground={"#333333"}
+        mobileBorder={"2px solid #999999"}
+      />
+      <div className="gallery-item-flex gallery-flex-subpage">
+        <div className="gallery-collection-choice">
+          <div
+            onClick={() => setSelectedSet("pre2025")}
+            style={{ cursor: "pointer", fontWeight: selectedSet === "pre2025" ? "bold" : "normal" }}
+          >
+            Pre-2025
+          </div>
+          |
+          <div
+            onClick={() => setSelectedSet("2025")}
+            style={{ cursor: "pointer", fontWeight: selectedSet === "2025" ? "bold" : "normal" }}
+          >
+            2025
+          </div>
+          |
+          <div
+            onClick={() => setSelectedSet("2026")}
+            style={{ cursor: "pointer", fontWeight: selectedSet === "2026" ? "bold" : "normal" }}
+          >
+            2026
+          </div>
         </div>
-    );
+
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          currentImages.map((publicId, index) => (
+            <img
+              key={index}
+              src={getCloudinaryUrl(publicId)}
+              alt={`Film ${index}`}
+              className="bella-photo"
+            />
+          ))
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default FilmGallery;
