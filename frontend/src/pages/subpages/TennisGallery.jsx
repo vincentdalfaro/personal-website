@@ -56,7 +56,7 @@ const TennisGallery = () => {
             <div className="loading-spinner" />
           </div>
         ) : (
-          currentImages.map((publicId, index) => (
+          currentImages.map(({ publicId }, index) => (
             <img
               key={index}
               src={getCloudinaryUrl(publicId)}

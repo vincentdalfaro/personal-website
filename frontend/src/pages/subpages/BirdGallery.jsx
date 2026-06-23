@@ -1,4 +1,3 @@
-import { birdCaptions } from "../../data/BirdCaptions.jsx";
 import { useState } from "react";
 import TopBar from "../../components/TopBar.jsx";
 import { useCloudinaryFolder, getCloudinaryUrl } from "../../hooks/useCloudinaryFolder.js";
@@ -61,9 +60,11 @@ const BirdGallery = () => {
             <div className="loading-spinner" />
           </div>
         ) : (
-          currentImages.map((publicId, index) => {
-            const filename = publicId.split("/").pop() + ".jpg";
-            const caption = birdCaptions[filename] || "Unknown Bird";
+          currentImages.map(({ publicId, displayName }, index) => {
+            const caption = displayName
+              .split('_')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
             return (
               <div className="caption-overlay-wrapper" key={index}>
                 <img src={getCloudinaryUrl(publicId)} alt={caption} className="bird-photo" />

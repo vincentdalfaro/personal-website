@@ -64,14 +64,14 @@ const FilmGallery = () => {
             <div className="loading-spinner" />
           </div>
         ) : (
-          currentImages.map((publicId, index) => (
-            <img
-              key={index}
-              src={getCloudinaryUrl(publicId)}
-              alt={`Film ${index}`}
-              className="bella-photo"
-            />
-          ))
+          currentImages.map(({ publicId }, index) => (
+          <img
+            key={index}
+            src={getCloudinaryUrl(publicId)}
+            alt={`Film ${index}`}
+            className="bella-photo"
+          />
+        ))
         )}
       </div>
     </div>
