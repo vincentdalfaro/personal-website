@@ -189,15 +189,12 @@
         scroll-snap-type: y mandatory;
     }
 
-    .gallery-flex-full:first-child {
-        justify-content: center;
-    }
-
 
    .gallery-flex-full {
         flex-direction: column;
         height: calc(100dvh - 67px);
         padding-top: 67px;
+        justify-content: center;
     }
 
     .gallery-right {
