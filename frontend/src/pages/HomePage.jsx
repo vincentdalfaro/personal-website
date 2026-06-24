@@ -11,54 +11,33 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [scrolledBackground, setScrolledBackground] = useState(false)
+  const [scrolledBackground, setScrolledBackground] = useState(false);
   const dividerRef = useRef(null);
   const headerRef = useRef(null);
 
-
   useEffect(() => {
-  const handleScroll = () => {
-    if (!dividerRef.current || !headerRef.current) return;
-
-    const dividerTop = dividerRef.current.getBoundingClientRect().top;
-    const headerBottom = headerRef.current.getBoundingClientRect().bottom;
-
-    const showBackground = dividerTop <= 0;
-    const hideBackground = headerBottom <= window.innerHeight;
-
-    // Original setScrolled logic
-    if (dividerTop <= 70) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-
-    // Background toggle logic
-    if (showBackground && !hideBackground) {
-      setScrolledBackground(prev => {
-        if (!prev) console.log("✅ Background ON");
-        return true;
-      });
-    } else {
-      setScrolledBackground(prev => {
-        if (prev) console.log("❌ Background OFF");
-        return false;
-      });
-    }
-  };
-
+    const handleScroll = () => {
+      if (!dividerRef.current || !headerRef.current) return;
+      const dividerTop = dividerRef.current.getBoundingClientRect().top;
+      const headerBottom = headerRef.current.getBoundingClientRect().bottom;
+      const showBackground = dividerTop <= 0;
+      const hideBackground = headerBottom <= window.innerHeight;
+      setScrolled(dividerTop <= 70);
+      if (showBackground && !hideBackground) {
+        setScrolledBackground(true);
+      } else {
+        setScrolledBackground(false);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   return (
     <div>
       <div className="home-one-container">
-        <TopBar
-          backgroundColor={scrolled ? "black" : "transparent"}
-        />
+        <TopBar backgroundColor={scrolled ? "black" : "transparent"} />
         <img src={Tree} className="my-photo" alt="Tree" />
         <div
           className="overlay-text"
@@ -76,20 +55,18 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Divider — tracked via ref */}
       <div className="horizontal-bar-black" ref={dividerRef} />
 
-      <div className= {scrolledBackground ? "general-flex-full-mobile" : "general-flex-full"}>
-        
+      <div className={scrolledBackground ? "general-flex-full-mobile" : "general-flex-full"} ref={headerRef}>
         <div className="general-flex-main-row">
-          <div className='general-flex-side' />
+
           <div className="general-flex-left">
             <div className="general-flex-text">
               <div className='general-flex-header'>Digital Design</div>
               <div className="general-text-body">
-                I am a San Francisco based full-stack developer and photographer.
+                I am a San Francisco–based full-stack developer and photographer specializing in freelance, nonprofit, and personal projects.
               </div>
-              <div className="general-button" >
+              <div className="general-button">
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vdalfaro20@gmail.com" target="_blank">
                   Contact me
                 </a>
@@ -97,34 +74,34 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="general-flex-topbar" />
-          <div className="general-flex-side" />
-        </div>
+          <div className="general-flex-right-wrapper">
+            <div className="general-frame-top" />
+            <div className="general-frame-middle">
+                <div className="general-frame-side-left" />
+                <div className="general-flex-right" />
+                <div className="general-frame-side-right" />
+            </div>
+            <div className="general-frame-bottom" />
+          </div>
 
-        <div className="general-flex-bottom" />
+        </div>
       </div>
 
       <div className='horizontal-bar-black' />
 
       <div className='gallery-flex-large'>
         <div className='gallery-item-flex'>
-
-          <div style={{ fontSize: "60px", color: "black" }}>
-            Collections
-          </div>
-
-          <div style = {{display: "flex", flexDirection: "row", flexWrap: "wrap", alignContent: "space-around"}}>
-            <Link to = "/media/tennis" className='gallery-item-image-box'>
+          <div style={{ fontSize: "60px", color: "black" }}>Collections</div>
+          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignContent: "space-around" }}>
+            <Link to="/media/tennis" className='gallery-item-image-box'>
               <img src={TennisTime} className='gallery-item-image' />
               Tennis
             </Link>
-
-            <Link to = "/media/birds" className='gallery-item-image-box'>
+            <Link to="/media/birds" className='gallery-item-image-box'>
               <img src={Bird} className='gallery-item-image' />
               Birds
             </Link>
-
-            <Link to = "/media/film" className='gallery-item-image-box'>
+            <Link to="/media/film" className='gallery-item-image-box'>
               <img src={Sky} className='gallery-item-image' />
               Film
             </Link>
@@ -133,7 +110,6 @@ const HomePage = () => {
       </div>
 
       <div className='horizontal-bar-black' />
-
       <div style={{ width: "100%", height: "100vh", backgroundColor: "white" }} />
     </div>
   );

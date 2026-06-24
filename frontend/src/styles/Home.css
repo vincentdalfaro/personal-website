@@ -13,49 +13,68 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("../assets/cover-photos/tennis-court.webp");
+    background-image: url("../assets/cover-photos/bee.jpg");
     background-position: right center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-color: #3d4a3e;
 }
 
 .general-flex-main-row {
     display: flex;
-    flex: 1 0 90vh;
-}
-
-.general-flex-topbar {
-    width: 55%;
-    height: 15vh;
-    background-color: #e9f5f9;
-}
-
-.general-flex-side {
-    align-content: right;
-    width: 5%;
-    background-color: #e9f5f9;
-    height: 90vh;
+    flex: 1;
+    height: 100vh;
+    align-items: center;
 }
 
 .general-flex-left {
-    background-color: #e9f5f9;
-    width: 80%;
-    height: 90vh;
-    color: black;
+    background-color: #3d4a3e;
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
 }
 
-.general-flex-bottom {
-    height: 10vh;
-    background-color: #e9f5f9;
-    width: 100%;
+.general-flex-right-wrapper {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.general-frame-top {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.general-frame-bottom {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.general-frame-middle {
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+}
+
+.general-frame-side-right {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.general-flex-right {
+    width: 80%;
+    background-color: transparent;
+    border: 2px solid white;
 }
 
 /* ===================== */
 /* Component Styles      */
 /* ===================== */
 
-/* Landing Page Top */
 .my-photo {
     width: 100%;
     height: 100%;
@@ -64,7 +83,6 @@
     display: block;
 }
 
-/* Overlays over first section of home */
 .overlay-text {
     position: absolute;
     top: 30%;
@@ -86,9 +104,9 @@
 /* ===================== */
 
 .general-flex-text {
-    margin-top: 30vh;
     margin-left: 10%;
-    margin-right: 15%;
+    margin-right: 10%;
+    color: white;
 }
 
 .general-text-body {
@@ -100,6 +118,7 @@
     padding: 10px;
     background-color: white;
     margin-top: 5%;
+    color: black;
     border-radius: 10px;
     border: 1px solid black;
     width: fit-content;
@@ -125,7 +144,6 @@
     background-color: black;
 }
 
-
 /* ===================== */
 /* Responsive Queries    */
 /* ===================== */
@@ -138,50 +156,70 @@
 }
 
 @media (max-width: 800px) {
+    .general-flex-full {
+        height: auto;
+    }
+
+    .general-flex-main-row {
+        flex-direction: column;
+        height: auto;
+    }
+
     .general-flex-left {
         width: 100%;
-        height: 0;
-    }
-
-    .general-flex-text{
-        margin-top: 0;
-        padding-top: 5vh;
-        margin-left: 0;
-        padding-bottom: 5vh;
-        margin-right: 0;
         height: auto;
-        background-color: #e9f5f9;
     }
 
-    .general-flex-topbar{
-        display: none;
+    .general-flex-right-wrapper {
+        width: 100%;
+        height: 40vh;
+    }
+
+    .general-frame-middle {
+        height: 70%;
+    }
+
+    .general-flex-right {
+        width: 80%;
+    }
+
+    .general-frame-top {
+        display: block;
+        flex: 1;
+        max-height: 20px;
+    }
+
+    .general-frame-bottom {
+        display: block;
+        flex: 1;
+        width: 100%;
+    }
+
+    .general-frame-side-right {
+        display: block;
+        flex: 1;
+    }
+
+    .general-frame-side-left {
+        display: block;
+        flex: 1;
+        background-color: #3d4a3e;
+    }
+
+    .general-flex-text {
+        margin: 0;
+        padding: 5vh 10%;
     }
 }
 
-@media (max-width: 450px){
-    .general-flex-header{
+@media (max-width: 450px) {
+    .general-flex-header {
         font-size: 45px;
     }
 
-    .general-text-body{
+    .general-text-body {
         font-size: 20px;
         margin-top: 5vh;
     }
 
-    .general-flex-full-mobile {
-        background: none; /* remove bg image and attachment */
-        position: relative; /* ensure relative for ::before */
-    }
-
-    .general-flex-full-mobile::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-image: url("../assets/cover-photos/tennis-court.png");
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: -1;  /* behind content */
-        pointer-events: none; /* click-through */
-    }
 }
