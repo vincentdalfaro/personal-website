@@ -17,7 +17,7 @@ const sections = [
     image: BirdsCover,
     title: "Birds",
     link: "/media/birds",
-    description: `During the start of the COVID-19 pandemic in 2020, I moved 
+    description: `During the start of the COVID-19 pandemic I moved 
     to a quiet San Francisco. The 
     birds continued to congregate, chirp, and chatter.`
   },
