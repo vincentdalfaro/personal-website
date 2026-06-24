@@ -1,0 +1,115 @@
+.topbar-flex {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 40px);
+    padding: 0px 40px;
+    height: 60px;
+    position: fixed;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar-h1 {
+    font-size: 22px;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.topbar-h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.topbar-links {
+    display: flex;
+    gap: 32px;
+    margin-left: 60px;
+}
+
+.topbar-links a {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.topbar-links a:hover {
+    color: #fff;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 40px;
+    gap: 16px;
+}
+
+.dropdown-menu a {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    color: #fff;
+}
+
+.topbar-nav-item {
+    position: relative;
+}
+
+.topbar-subdropdown {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    padding-top: 10px;
+    min-width: 80px;
+}
+
+.topbar-subdropdown a {
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    padding: 8px 5px;
+    border: 1px solid white;
+    border-top: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.topbar-subdropdown a:first-child {
+    border-top: 1px solid white;
+}
+
+.topbar-subdropdown a:hover {
+    background-color: #69696980;
+}
+
+@media (max-width: 450px) {
+    .topbar-flex {
+        padding: 0 20px;
+    }
+
+    .topbar-links {
+        margin-left: 0;
+        gap: 0;
+    }
+}

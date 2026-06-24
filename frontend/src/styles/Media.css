@@ -5,16 +5,14 @@
 .gallery-flex-full {
     display: flex;
     flex-direction: row;
-    width: 100vw; /* Make each slide exactly viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    height: 100vh;
     background-color: #f0f4f7;
     color: black;
-    scroll-snap-align: start; /* Snap to this slide */
-    flex-shrink: 0; /* Prevent flexbox from shrinking the slide */
+    scroll-snap-align: start;
+    flex-shrink: 0;
     align-items: center;
 }
-
-
 
 /* ===============================
    HORIZONTAL SCROLL CONTAINER
@@ -30,15 +28,12 @@
     width: 100vw;
     height: 100vh;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .horizontal-scroll-container::-webkit-scrollbar {
     display: none;
-}
-
-.horizontal-scroll-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 /* ===============================
@@ -163,19 +158,26 @@
     opacity: 1;
 }
 
+/* ===============================
+   NAVIGATION BUTTONS
+=================================*/
+
 .next-button {
-  margin-top: 40px;
-  padding: 12px 24px;
-  font-size: 25px;
-  color: black;
-  border: none;
-  cursor: pointer;
-  
-  background-color: transparent;
-  justify-content: center;
+    margin-top: 40px;
+    padding: 12px 24px;
+    font-size: 25px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
 }
 
-.loading-container{
+/* ===============================
+   LOADING
+=================================*/
+
+.loading-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -183,17 +185,17 @@
 }
 
 .loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid #ddd;
-  border-top: 3px solid #333;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 40px auto;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 40px auto;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* ===============================
@@ -201,20 +203,18 @@
 =================================*/
 
 @media (max-width: 1000px) {
-
-     .horizontal-scroll-container {
+    .horizontal-scroll-container {
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: auto;
         scroll-snap-type: y mandatory;
     }
 
-
-   .gallery-flex-full {
+    .gallery-flex-full {
         flex-direction: column;
         height: 100dvh;
         justify-content: center;
-        padding-top: 67px 0px;
+        padding-top: 67px;
         box-sizing: border-box;
     }
 
@@ -224,18 +224,26 @@
         align-items: center;
     }
 
-    .gallery-left{
+    .gallery-left {
         padding: 50px 10% 0% 10%;
         align-items: center;
         width: 40vh;
     }
 
-    .next-button{
+    .next-button {
         margin-top: 0;
+        align-self: center;
     }
 
     .media-header {
+        font-size: 28px;
+        text-align: center;
         margin-bottom: 0;
+    }
+
+    .media-page-description {
+        text-align: center;
+        font-size: 16px;
     }
 
     .gallery-cover {
@@ -249,25 +257,9 @@
         margin-top: 10px;
     }
 
-    .media-header {
-        font-size: 28px;
-        text-align: center;
-    }
-
-    .media-page-description {
-        text-align: center;
-        font-size: 16px;
-    }
-
     .caption-overlay-wrapper {
         width: 90%;
     }
-
-    .next-button {
-        align-self: center;
-        margin-top: 30px;
-    }
-
 }
 
 @media (max-width: 800px) {
@@ -277,7 +269,7 @@
         width: 90%;
     }
 
-    .gallery-left{
+    .gallery-left {
         height: 40dvh;
     }
 }
@@ -287,7 +279,7 @@
         flex-wrap: wrap;
     }
 
-    .gallery-left{
+    .gallery-left {
         width: 50%;
     }
 }
@@ -301,16 +293,13 @@
         padding-top: 25%;
     }
 
-    .gallery-left{
+    .gallery-left {
         width: 50%;
         padding: 0;
     }
-
 }
 
 @media (max-width: 400px) {
-
-
     .media-header {
         font-size: 25px;
         text-align: center;
@@ -318,7 +307,7 @@
         margin-top: 0;
     }
 
-    .next-button{
+    .next-button {
         margin-top: 0;
     }
 }

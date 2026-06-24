@@ -87,8 +87,7 @@ const HomePage = () => {
             <div className="general-flex-text">
               <div className='general-flex-header'>Digital Design</div>
               <div className="general-text-body">
-                I am a San Francisco based full-stack developer with a passion for my community and work.
-                I am always open to meaningful collaborative projects as well as any opportunity to talk.
+                I am a San Francisco based full-stack developer and photographer.
               </div>
               <div className="general-button" >
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vdalfaro20@gmail.com" target="_blank">

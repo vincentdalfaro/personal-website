@@ -5,7 +5,7 @@ const ProfessionalPage = () => {
     
     return (
         <div>
-            <TopBar backgroundColor={"black"} mobileBackground = {"#333333"} mobileBorder = {"2px solid #999999"}/>
+            <TopBar backgroundColor="black" mobileBackground = {"#333333"} mobileBorder = {"2px solid #999999"}/>
             
             <div className="professional-flex-full">
                 <div className="professional-flex-intro">
