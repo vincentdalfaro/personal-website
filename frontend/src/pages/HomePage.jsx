@@ -94,16 +94,8 @@ const HomePage = () => {
 
       <div className='gallery-flex-large'>
         <div className='gallery-item-flex'>
-          <div style={{ fontSize: "60px", color: "black" }}>Collections</div>
-          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignContent: "space-around" }}>
-            <Link to="/media/tennis" className='gallery-item-image-box'>
-              <img src={TennisTime} className='gallery-item-image' />
-              Tennis
-            </Link>
-            <Link to="/media/birds" className='gallery-item-image-box'>
-              <img src={Bird} className='gallery-item-image' />
-              Birds
-            </Link>
+          <div >Collections</div>
+          <div>
             <Link to="/media/film" className='gallery-item-image-box'>
               <img src={Sky} className='gallery-item-image' />
               Film

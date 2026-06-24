@@ -103,9 +103,48 @@
     background-color: #69696980;
 }
 
+/* Topbar */
+.topbar-flex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    position: fixed;
+    z-index: 9999;
+}
+
+.topbar-h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.topbar-links {
+    display: flex;
+    gap: 20px;
+    margin-left: 50px;
+    flex: 1;
+    font-weight: 100;
+}
+
+.topbar-logo {
+    width: 17px;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 3px;
+}
+
 @media (max-width: 450px) {
     .topbar-flex {
         padding: 0 20px;
+    }
+
+    .dropdown-menu {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-left: none;
+        border-bottom: 1px solid white;
+        border-top: none;
     }
 
     .topbar-links {

@@ -53,7 +53,7 @@ const TopBar = ({backgroundColor, color, mobileBackground, mobileBorder}) => {
           <div className='topbar-links'>
             <Hamburger toggled={hamburgerOpen} toggle={setHamburgerOpen} />
             {hamburgerOpen && (
-              <div className='dropdown-menu' style={{ backgroundColor: mobileBackground, border: `2px solid ${mobileBorder}` }}>
+              <div className='dropdown-menu' style={{ background: backgroundColor, border: `2px solid ${mobileBorder}` }}>
                 <Link to="/">Home</Link>
                 <Link to="/media">Media</Link>
                 <Link to="/media/birds">— Birds</Link>
