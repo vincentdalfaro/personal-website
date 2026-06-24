@@ -7,6 +7,7 @@ import Bird from "../assets/cover-photos/bird.jpg";
 import Sky from "../assets/cover-photos/sky.jpg";
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import TennisCourt from "../assets/cover-photos/bee.jpg";
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -78,7 +79,9 @@ const HomePage = () => {
             <div className="general-frame-top" />
             <div className="general-frame-middle">
                 <div className="general-frame-side-left" />
-                <div className="general-flex-right" />
+                <div className="general-flex-right">
+                    <img src={TennisCourt} className="general-frame-img" />
+                </div>
                 <div className="general-frame-side-right" />
             </div>
             <div className="general-frame-bottom" />
