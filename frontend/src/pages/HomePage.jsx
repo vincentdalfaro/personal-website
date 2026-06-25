@@ -8,6 +8,7 @@ import Sky from "../assets/cover-photos/sky.jpg";
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import TennisCourt from "../assets/cover-photos/bee.jpg";
+import Polaroid from "../assets/cover-photos/polaroid.jpg"
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -93,12 +94,12 @@ const HomePage = () => {
       <div className='horizontal-bar-black' />
 
       <div className='gallery-flex-large'>
+        <img src={Sky} className='gallery-bg-image' />
         <div className='gallery-item-flex'>
-          <div >Collections</div>
           <div>
             <Link to="/media/film" className='gallery-item-image-box'>
-              <img src={Sky} className='gallery-item-image' />
-              Film
+              <img src={Polaroid} className='gallery-item-image' />
+              Polaroids
             </Link>
           </div>
         </div>

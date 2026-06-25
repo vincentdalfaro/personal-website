@@ -1,19 +1,25 @@
 /* ===================== */
 /* Layout Styles         */
 /* ===================== */
-
-/* Gallery Section */
 .gallery-flex-large {
+    position: relative;
     width: 100%;
     min-height: 100vh;
-    background-image: url("../assets/cover-photos/sky.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+}
+
+.gallery-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .gallery-item-flex {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -24,64 +30,21 @@
     width: 100%;
 }
 
-
-/* ===================== */
-/* Component Styles      */
-/* ===================== */
-
-/* Topbar */
-.topbar-flex {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 15px;
-    position: fixed;
-    z-index: 9999;
+.gallery-item-image {
+    width: 300px;
+    cursor: pointer;
 }
 
-.topbar-h1 {
-    font-size: 30px;
-    font-weight: 500;
-}
 
-.topbar-links {
-    display: flex;
-    gap: 20px;
-    margin-left: 50px;
-    flex: 1;
-    font-weight: 100;
-}
-
-.topbar-logo {
-    width: 17px;
-    border: 1px solid white;
-    border-radius: 4px;
-    margin-right: 20px;
-    padding: 3px;
-}
-
-/* ===================== */
-/* Utility Classes       */
-/* ===================== */
-
-.gallery-item-image-box {
+.gallery-item-image-box{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 20vw;
-    color: white;
-    padding: 1vh;
-    border-radius: 8px;
-    margin: 1vh 0;
+    transition: transform 0.3s ease;
 }
 
-.gallery-item-image {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    cursor: grab;
+.gallery-item-image-box:hover {
+    transform: scale(1.05);
 }
-
 
 /* ===================== */
 /* Responsive Queries    */
