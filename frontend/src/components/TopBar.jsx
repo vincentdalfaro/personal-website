@@ -100,7 +100,6 @@ const TopBar = ({backgroundColor, color, mobileBackground, mobileBorder}) => {
           className='dropdown-menu'
           style={{
             background: backgroundColor,
-            border: `2px solid ${mobileBorder}`,
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
           }}
