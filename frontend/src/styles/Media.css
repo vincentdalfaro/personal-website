@@ -138,13 +138,14 @@
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 2vw;
-    padding-top: 90px;
+    padding-top: 0;
     justify-content: center;
     width: 100%;
 }
 
 .gallery-flex-subpage {
      background-color: white;
+     padding-top: 60px;
 }
 
 .gallery-item-image {
