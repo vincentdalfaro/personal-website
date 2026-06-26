@@ -104,7 +104,8 @@
         width: 100vw;
         display: flex;
         flex-direction: column;
-        padding: 16px 45px;
+        border-bottom: 1px solid white;
+        padding: 16px 50px;
         gap: 16px;
         z-index: 99999;
     }
