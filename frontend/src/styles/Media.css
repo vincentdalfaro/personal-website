@@ -145,7 +145,6 @@
 
 .gallery-flex-subpage {
      background-color: white;
-     min-height: 100dvh;
 }
 
 .gallery-item-image {
@@ -236,6 +235,7 @@
     display: flex;
     justify-content: center;
     padding-top: 25dvh;
+    padding-bottom: 60dvh;
 }
 
 .loading-spinner {
@@ -331,6 +331,7 @@
     .gallery-left {
         width: 50%;
     }
+
 }
 
 @media (max-width: 450px) {
@@ -342,6 +343,11 @@
         width: 50%;
         padding: 0;
     }
+
+    .gallery-item-flex{
+        padding-top: 60px
+    }
+
 }
 
 @media (max-width: 400px) {
