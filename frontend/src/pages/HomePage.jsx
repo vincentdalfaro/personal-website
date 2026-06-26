@@ -97,11 +97,19 @@ const HomePage = () => {
         <img src={Sky} className='gallery-bg-image' />
         <div className='gallery-item-flex'>
           <div>
-            <Link to="/media/polaroids" className='gallery-item-image-box'>
+            <Link to="/collections/polaroids" className='gallery-item-image-box'>
               <img src={Polaroid} className='gallery-item-image' />
               Polaroids
             </Link>
           </div>
+
+          <div>
+            <Link to="/collections/digital" className='gallery-item-image-box'>
+              <img src={Polaroid} className='gallery-item-image' />
+              Digtial
+            </Link>
+          </div>
+
         </div>
       </div>
 

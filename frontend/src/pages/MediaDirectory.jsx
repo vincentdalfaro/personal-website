@@ -36,7 +36,7 @@ const sections = [
   },
 ];
 
-const MediaPage = () => {
+const MediaDirectory = () => {
 
   const isSmallScreen = useResponsive(1000)
   const scrollRef = useRef();
@@ -142,4 +142,4 @@ const MediaPage = () => {
   );
 };
 
-export default MediaPage;
+export default MediaDirectory;

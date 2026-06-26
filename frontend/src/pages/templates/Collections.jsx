@@ -1,11 +1,9 @@
 import TopBar from "../../components/TopBar.jsx";
 import { useCloudinaryFolder, getCloudinaryUrl } from "../../hooks/useCloudinaryFolder.js";
 
-const FOLDERS = ["personal_website/polaroids"];
-
-const PolaroidGallery = () => {
-  const { images, loading } = useCloudinaryFolder(FOLDERS);
-  const currentImages = images["personal_website/polaroids"] ?? [];
+const Collections = ({ folder, altPrefix, photoClass = "polaroid-photo" }) => {
+  const { images, loading } = useCloudinaryFolder([folder]);
+  const currentImages = images[folder] ?? [];
 
   return (
     <div>
@@ -14,7 +12,7 @@ const PolaroidGallery = () => {
         mobileBackground={"#333333"}
         mobileBorder="#999999"
       />
-      <div className="gallery-item-flex">
+      <div className="gallery-item-flex polaroid-flex">
         {loading ? (
           <div className="loading-container">
             <div className="loading-spinner" />
@@ -24,8 +22,8 @@ const PolaroidGallery = () => {
             <img
               key={index}
               src={getCloudinaryUrl(publicId)}
-              alt={`Polaroid ${index}`}
-              className="polaroid-photo"
+              alt={`${altPrefix} ${index}`}
+              className={photoClass}
             />
           ))
         )}
@@ -34,4 +32,4 @@ const PolaroidGallery = () => {
   );
 };
 
-export default PolaroidGallery;
+export default Collections;

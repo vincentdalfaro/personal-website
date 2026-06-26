@@ -26,7 +26,7 @@ export function useCloudinaryFolder(folders) {
       setLoading(false);
     }
     load();
-  }, []);
+  }, [JSON.stringify(folders)]);
 
   return { images, loading };
 }

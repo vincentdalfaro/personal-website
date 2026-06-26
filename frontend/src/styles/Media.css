@@ -126,6 +126,11 @@
     display: block;
 }
 
+.polaroid-flex{
+    background-color: black;
+    padding-top: 100px;
+}
+
 /* ===============================
    GALLERY GRID
 =================================*/
@@ -138,7 +143,6 @@
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 2vw;
-    padding-top: 0;
     justify-content: center;
     width: 100%;
 }
