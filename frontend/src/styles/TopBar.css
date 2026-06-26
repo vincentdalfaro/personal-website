@@ -54,13 +54,13 @@
 
 .topbar-subdropdown {
     position: absolute;
-    top: 100%;
     display: flex;
     left: 50%;
     transform: translateX(-50%);
     flex-direction: column;
-    padding-top: 10px;
     min-width: 80px;
+    padding-top: 10px;
+    margin-top: -10px;
 }
 
 .topbar-subdropdown a {
@@ -105,7 +105,7 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid white;
-        border-top: .5px solid white;
+        border-top: 1px solid white;
         padding: 16px 50px;
         gap: 16px;
         z-index: 99999;
