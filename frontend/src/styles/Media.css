@@ -26,7 +26,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -50,7 +50,7 @@
 }
 
 .gallery-cover {
-    height: 50vh;
+    height: 50dvh;
     width: auto;
     object-fit: cover;
     border-radius: 8px;
@@ -94,7 +94,7 @@
 .gallery-flex-large {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .gallery-bg-image {
@@ -144,7 +144,7 @@
 }
 
 .gallery-flex-subpage {
-    padding-top: 12vh;
+    padding-top: 12dvh;
 }
 
 .gallery-item-image {
@@ -280,7 +280,7 @@
     .gallery-left {
         padding: 50px 10% 0% 10%;
         align-items: center;
-        width: 40vh;
+        width: 40dvh;
     }
 
     .next-button {
