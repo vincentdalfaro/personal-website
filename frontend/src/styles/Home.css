@@ -216,17 +216,15 @@
     }
 }
 
-@media (max-width: 450px) {
-    body {
-        background-color: black;
+@media (max-width: 600px) {
+    .topbar-flex {
+        padding-top: env(safe-area-inset-top);
+        top: 0;
     }
 
     .home-one-container {
-        min-height: 100dvh;
-    }
-
-    .my-photo {
-        min-height: 100dvh;
+        padding-top: 0;
+        margin-top: 0;
     }
 }
 
