@@ -138,13 +138,14 @@
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 2vw;
-    padding-top: 10dvh;
+    padding-top: 90px;
     justify-content: center;
     width: 100%;
 }
 
 .gallery-flex-subpage {
-    padding-top: 12dvh;
+     background-color: white;
+     min-height: 100dvh;
 }
 
 .gallery-item-image {
