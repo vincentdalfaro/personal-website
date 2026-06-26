@@ -105,7 +105,7 @@
 }
 
 .polaroid-photo {
-    height: 40vw;
+    height: 30vw;
     margin: 1%;
 }
 
@@ -285,9 +285,6 @@
 }
 
 @media (max-width: 450px) {
-    .gallery-flex-subpage {
-        padding-top: 12vh;
-    }
 
     .gallery-flex-full {
         padding-top: 25%;

@@ -33,7 +33,7 @@ const FilmGallery = () => {
       <TopBar
         backgroundColor={"black"}
         mobileBackground={"#333333"}
-        mobileBorder={"2px solid #999999"}
+        mobileBorder="#999999"
       />
       <div className="gallery-item-flex gallery-flex-subpage">
         <div className="gallery-collection-choice">

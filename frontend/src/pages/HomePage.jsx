@@ -66,7 +66,7 @@ const HomePage = () => {
             <div className="general-flex-text">
               <div className='general-flex-header'>Digital Design</div>
               <div className="general-text-body">
-                I am a San Francisco–based full-stack developer and photographer specializing in freelance, nonprofit, and personal projects.
+                I am a San Francisco–based full-stack developer and photographer with a passion for nonprofit work.
               </div>
               <div className="general-button">
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vdalfaro20@gmail.com" target="_blank">
@@ -97,7 +97,7 @@ const HomePage = () => {
         <img src={Sky} className='gallery-bg-image' />
         <div className='gallery-item-flex'>
           <div>
-            <Link to="/media/film" className='gallery-item-image-box'>
+            <Link to="/media/polaroids" className='gallery-item-image-box'>
               <img src={Polaroid} className='gallery-item-image' />
               Polaroids
             </Link>

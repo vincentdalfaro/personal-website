@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import LinkedinLogo from '../assets/logos/LinkedIn-logo.png'
 import TennisLogo from "../assets/logos/tennis-logo.png"
 import UseResponsive from '../hooks/UseResponsive';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import Hamburger from 'hamburger-react'
 import '../styles/TopBar.css';
 
@@ -20,7 +21,7 @@ const navLinks = [
     label: 'Projects',
     path: '/projects',
     sublinks: [
-       { label: 'Gender Equity', path: '/' },
+      { label: 'Gender Equity', path: '/' },
       { label: 'Tennis Time', path: '/' },
     ]
   },
@@ -31,16 +32,33 @@ const navLinks = [
   },
 ];
 
+const isTransparent = (bg) => !bg || bg === 'transparent' || bg?.includes('rgba');
+
 const TopBar = ({backgroundColor, color, mobileBackground, mobileBorder}) => {
   const isSmall = UseResponsive(650)
   const isMobile = UseResponsive(451)
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
-  
+  const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 })
+  const navItemRefs = useRef({})
+
+  const handleMouseEnter = (label) => {
+    setActiveDropdown(label);
+    const el = navItemRefs.current[label];
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      setDropdownPos({
+        top: rect.bottom + 10,
+        left: rect.left + rect.width / 2,
+      });
+    }
+  };
+
+  const activeNav = navLinks.find(n => n.label === activeDropdown);
 
   return (
     <div>
-      <div className="topbar-flex" style={{ background: backgroundColor, color: color }}>
+      <div className="topbar-flex" style={{ background: backgroundColor, color: color, backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
         <div className='topbar-h1'>
           {isMobile ? null : isSmall ? (
             <Link to="/">VA</Link>
@@ -52,44 +70,18 @@ const TopBar = ({backgroundColor, color, mobileBackground, mobileBorder}) => {
         {isMobile ? (
           <div className='topbar-links'>
             <Hamburger toggled={hamburgerOpen} toggle={setHamburgerOpen} />
-            {hamburgerOpen && (
-              <div className='dropdown-menu' style={{ background: backgroundColor, border: `2px solid ${mobileBorder}` }}>
-                <Link to="/">Home</Link>
-                <Link to="/media">Media</Link>
-                <Link to="/media/birds">— Birds</Link>
-                <Link to="/media/tennis">— Tennis</Link>
-                <Link to="/media/film">— Film</Link>
-                <Link to="/projects">Projects</Link>
-                <Link to="/professional">Professional</Link>
-              </div>
-            )}
           </div>
         ) : (
           <div className="topbar-links">
             {navLinks.map((nav) => (
               <div
                 key={nav.label}
+                ref={el => navItemRefs.current[nav.label] = el}
                 className="topbar-nav-item"
-                onMouseEnter={() => setActiveDropdown(nav.label)}
+                onMouseEnter={() => handleMouseEnter(nav.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link to={nav.path}>{nav.label}</Link>
-                {nav.sublinks.length > 0 && activeDropdown === nav.label && (
-                <div className="topbar-subdropdown" style={{ background: backgroundColor }}>
-                    {nav.sublinks.map((sub, i) => (
-                    <Link
-                        key={sub.label}
-                        to={sub.path}
-                        style={{
-                        border: `1px solid ${mobileBorder || 'white'}`,
-                        borderTop: i === 0 ? `1px solid ${mobileBorder || 'white'}` : 'none'
-                        }}
-                    >
-                        {sub.label}
-                    </Link>
-                    ))}
-                </div>
-                )}
               </div>
             ))}
           </div>
@@ -102,6 +94,59 @@ const TopBar = ({backgroundColor, color, mobileBackground, mobileBorder}) => {
           <img src={TennisLogo} className='topbar-logo' />
         </Link>
       </div>
+
+      {isMobile && hamburgerOpen && createPortal(
+        <div
+          className='dropdown-menu'
+          style={{
+            background: backgroundColor,
+            border: `2px solid ${mobileBorder}`,
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+        >
+          <Link to="/">Home</Link>
+          <Link to="/media">Media</Link>
+          <Link to="/media/birds">— Birds</Link>
+          <Link to="/media/tennis">— Tennis</Link>
+          <Link to="/media/film">— Film</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/professional">Professional</Link>
+        </div>,
+        document.body
+      )}
+
+      {activeDropdown && activeNav?.sublinks.length > 0 && createPortal(
+        <div
+          className="topbar-subdropdown"
+          style={{
+            position: 'fixed',
+            top: dropdownPos.top,
+            left: dropdownPos.left,
+            transform: 'translateX(-50%)',
+            background: backgroundColor,
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            zIndex: 99999,
+          }}
+          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          onMouseLeave={() => setActiveDropdown(null)}
+        >
+          {activeNav.sublinks.map((sub, i) => (
+            <Link
+              key={sub.label}
+              to={sub.path}
+              style={{
+                border: `1px solid ${mobileBorder || 'white'}`,
+                borderTop: i === 0 ? `1px solid ${mobileBorder || 'white'}` : 'none'
+              }}
+            >
+              {sub.label}
+            </Link>
+          ))}
+        </div>,
+        document.body
+      )}
     </div>
   );
 };
