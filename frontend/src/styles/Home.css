@@ -216,6 +216,16 @@
     }
 }
 
+@media (max-width: 650px) {
+    .home-one-container {
+        height: 100dvh;
+    }
+
+    .my-photo {
+        object-position: top center;
+    }
+}
+
 @media (max-width: 510px) {
     .general-frame-img {
         display: block;
