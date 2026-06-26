@@ -216,13 +216,17 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 450px) {
+    body {
+        background-color: black;
+    }
+
     .home-one-container {
-        height: 100dvh;
+        min-height: 100dvh;
     }
 
     .my-photo {
-        object-position: top center;
+        min-height: 100dvh;
     }
 }
 
