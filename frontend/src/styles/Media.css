@@ -255,7 +255,7 @@
    RESPONSIVE DESIGN
 =================================*/
 
-/* @media (max-width: 1000px) {
+@media (max-width: 1000px) {
     .horizontal-scroll-container {
         flex-direction: column;
         overflow-x: hidden;
@@ -354,4 +354,4 @@
     .next-button {
         margin-top: 0;
     }
-} */
+}
