@@ -43,6 +43,11 @@ const MediaPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    document.body.style.backgroundColor = '#f0f4f7';
+    return () => { document.body.style.backgroundColor = ''; };
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       if (scrollRef.current) {
         if (window.innerWidth <= 1000) {
