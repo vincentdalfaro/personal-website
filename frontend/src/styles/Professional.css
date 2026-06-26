@@ -1,7 +1,6 @@
 .professional-flex-full{
     display: flex;
     flex-direction: column;
-    color: black;
     padding-top: 400px;
     justify-content: center;
 }
