@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import TennisCourt from "../assets/cover-photos/bee.jpg";
 import Polaroid from "../assets/cover-photos/polaroid.jpg"
+import Digital from "../assets/cover-photos/digital.jpg"
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -94,27 +95,23 @@ const HomePage = () => {
       <div className='divider-black' />
 
       <div className='home-collections'>
-        <img src={Sky} className='gallery-bg-image' />
-        <div className='gallery-item-flex'>
-          <div>
-            <Link to="/collections/polaroids" className='gallery-item-image-box'>
-              <img src={Polaroid} className='gallery-item-image' />
-              Polaroids
-            </Link>
-          </div>
+        <img src={Sky} className='collections-bg-image' />
+        <div className='collections-item-flex'>
+          <div className='collections-header'>Collections</div>
 
-          <div>
-            <Link to="/collections/digital" className='gallery-item-image-box'>
-              <img src={Polaroid} className='gallery-item-image' />
-              Digtial
-            </Link>
-          </div>
+          <Link to="/collections/polaroids" className='collections-image-box'>
+            <img src={Polaroid} className='collection-item-image' />
+            <div className='collections-subheader'> Polaroids </div>
+          </Link>
 
+          <Link to="/collections/digital" className='collections-image-box'>
+            <img src={Digital} className='collection-item-image' />
+            <div className='collections-subheader'> Digital </div>
+          </Link>
         </div>
       </div>
 
       <div className='divider-black' />
-      <div style={{ width: "100%", height: "100vh", backgroundColor: "white" }} />
     </div>
   );
 };
