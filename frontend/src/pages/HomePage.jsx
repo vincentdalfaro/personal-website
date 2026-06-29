@@ -38,18 +38,18 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="home-one-container">
+      <div className="home-hero">
         <TopBar backgroundColor={scrolled ? "black" : "transparent"} />
-        <img src={Tree} className="my-photo" alt="Tree" />
+        <img src={Tree} className="home-hero-photo" alt="Tree" />
         <div
-          className="overlay-text"
+          className="home-hero-overlay"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           Explore Projects
           {isHovered && (
             <div>
-              <div className="horizontal-bar-white" style={{ marginTop: "5px" }} />
+              <div className="divider-white" style={{ marginTop: "5px" }} />
               <div style={{ marginTop: "10px", cursor: "grab" }}>ItsTennisTime</div>
               <div style={{ marginTop: "10px", cursor: "grab" }}>Film Development</div>
             </div>
@@ -57,18 +57,18 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="horizontal-bar-black" ref={dividerRef} />
+      <div className="divider-black" ref={dividerRef} />
 
-      <div className={scrolledBackground ? "general-flex-full-mobile" : "general-flex-full"} ref={headerRef}>
-        <div className="general-flex-main-row">
+      <div className={scrolledBackground ? "general-flex-full-mobile" : "home-about"} ref={headerRef}>
+        <div className="home-about-row">
 
-          <div className="general-flex-left">
-            <div className="general-flex-text">
-              <div className='general-flex-header'>Digital Design</div>
-              <div className="general-text-body">
+          <div className="home-about-left">
+            <div className="home-about-text">
+              <div className='home-about-heading'>Digital Design</div>
+              <div className="home-about-body">
                 I am a San Francisco–based full-stack developer and photographer with a passion for nonprofit work.
               </div>
-              <div className="general-button">
+              <div className="home-about-button">
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vdalfaro20@gmail.com" target="_blank">
                   Contact me
                 </a>
@@ -76,24 +76,24 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="general-flex-right-wrapper">
-            <div className="general-frame-top" />
-            <div className="general-frame-middle">
-                <div className="general-frame-side-left" />
-                <div className="general-flex-right">
-                    <img src={TennisCourt} className="general-frame-img" />
+          <div className="home-about-right-wrapper">
+            <div className="home-frame-top" />
+            <div className="home-frame-middle">
+                <div className="home-frame-side-left" />
+                <div className="home-frame-inner">
+                    <img src={TennisCourt} className="home-frame-img" />
                 </div>
-                <div className="general-frame-side-right" />
+                <div className="home-frame-side-right" />
             </div>
-            <div className="general-frame-bottom" />
+            <div className="home-frame-bottom" />
           </div>
 
         </div>
       </div>
 
-      <div className='horizontal-bar-black' />
+      <div className='divider-black' />
 
-      <div className='gallery-flex-large'>
+      <div className='home-collections'>
         <img src={Sky} className='gallery-bg-image' />
         <div className='gallery-item-flex'>
           <div>
@@ -113,7 +113,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className='horizontal-bar-black' />
+      <div className='divider-black' />
       <div style={{ width: "100%", height: "100vh", backgroundColor: "white" }} />
     </div>
   );

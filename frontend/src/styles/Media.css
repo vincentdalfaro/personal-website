@@ -1,22 +1,6 @@
 /* ===============================
-   GLOBAL CONTAINER STYLES
-=================================*/
-
-.gallery-flex-full {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100dvh;
-    background-color: #f0f4f7;
-    color: black;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    align-items: center;
-}
-
-/* ===============================
-   HORIZONTAL SCROLL CONTAINER
-=================================*/
+   MEDIA DIRECTORY — SCROLL LAYOUT
+================================= */
 
 .horizontal-scroll-container {
     display: flex;
@@ -36,9 +20,21 @@
     display: none;
 }
 
+.gallery-flex-full {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100dvh;
+    background-color: #f0f4f7;
+    color: black;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    align-items: center;
+}
+
 /* ===============================
-   LEFT SIDE: IMAGE DISPLAY
-=================================*/
+   MEDIA DIRECTORY — SLIDE CONTENT
+================================= */
 
 .gallery-left {
     width: 40%;
@@ -62,10 +58,6 @@
     transform: scale(1.03);
 }
 
-/* ===============================
-   RIGHT SIDE: TEXT CONTENT
-=================================*/
-
 .gallery-right {
     width: 60%;
     padding: 5%;
@@ -84,56 +76,27 @@
     color: #555;
     line-height: 1.6;
     width: 90%;
-    height: auto;
+}
+
+.next-button {
+    margin-top: 40px;
+    padding: 12px 24px;
+    font-size: 25px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    justify-content: center;
 }
 
 /* ===============================
-   HOME GALLERY SECTION
-=================================*/
+   GALLERY SUBPAGES — GRID
+================================= */
 
-.gallery-flex-large {
-    position: relative;
-    width: 100%;
-    min-height: 100dvh;
-}
-
-.gallery-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200dvh;
-    object-fit: cover;
-    z-index: 0;
-}
-
-/* ===============================
-   IMAGE COLLECTION STYLES
-=================================*/
-
-.bella-photo {
-    height: 30vw;
-    margin: 1%;
-}
-
-.polaroid-photo {
-    height: 30vw;
-    margin: 1%;
-}
-
-.bird-photo {
-    width: 100%;
-    display: block;
-}
-
-.polaroid-flex{
-    background-color: black;
+.gallery-flex-subpage {
+    background-color: white;
     padding-top: 100px;
 }
-
-/* ===============================
-   GALLERY GRID
-=================================*/
 
 .gallery-item-flex {
     position: relative;
@@ -145,11 +108,6 @@
     gap: 2vw;
     justify-content: center;
     width: 100%;
-}
-
-.gallery-flex-subpage {
-     background-color: white;
-     padding-top: 100px;
 }
 
 .gallery-item-image {
@@ -173,8 +131,34 @@
 }
 
 /* ===============================
-   COLLECTION CHOICE
-=================================*/
+   GALLERY SUBPAGES — PHOTOS
+================================= */
+
+.bella-photo {
+    height: 30vw;
+    margin: 1%;
+}
+
+.polaroid-photo {
+    height: 30vw;
+    margin: 1%;
+}
+
+
+
+.bird-photo {
+    width: 100%;
+    display: block;
+}
+
+.polaroid-flex {
+    background-color: black;
+    padding-top: 100px;
+}
+
+/* ===============================
+   GALLERY SUBPAGES — TABS
+================================= */
 
 .gallery-collection-choice {
     display: flex;
@@ -187,8 +171,8 @@
 }
 
 /* ===============================
-   CAPTION OVERLAY ON HOVER
-=================================*/
+   CAPTIONS
+================================= */
 
 .caption-overlay-wrapper {
     position: relative;
@@ -217,23 +201,32 @@
 }
 
 /* ===============================
-   NAVIGATION BUTTONS
-=================================*/
+   HOME GALLERY SECTION
+================================= */
 
-.next-button {
-    margin-top: 40px;
-    padding: 12px 24px;
-    font-size: 25px;
-    color: black;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    justify-content: center;
+.gallery-flex-large {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+}
+
+/* ===============================
+   HOME — COLLECTIONS BACKGROUND
+================================= */
+
+.gallery-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200dvh;
+    object-fit: cover;
+    z-index: 0;
 }
 
 /* ===============================
    LOADING
-=================================*/
+================================= */
 
 .loading-container {
     width: 100%;
@@ -258,8 +251,8 @@
 }
 
 /* ===============================
-   RESPONSIVE DESIGN
-=================================*/
+   RESPONSIVE
+================================= */
 
 @media (max-width: 1000px) {
     .horizontal-scroll-container {
@@ -336,7 +329,6 @@
     .gallery-left {
         width: 50%;
     }
-
 }
 
 @media (max-width: 450px) {
@@ -349,10 +341,9 @@
         padding: 0;
     }
 
-    .gallery-item-flex{
-        padding-top: 60px
+    .gallery-item-flex {
+        padding-top: 60px;
     }
-
 }
 
 @media (max-width: 400px) {

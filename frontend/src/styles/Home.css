@@ -1,14 +1,42 @@
 /* ===================== */
-/* Layout Styles         */
+/* Hero Section          */
 /* ===================== */
 
-.home-one-container {
+.home-hero {
     position: relative;
     width: 100%;
     height: 100vh;
 }
 
-.general-flex-full {
+.home-hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.home-hero-overlay {
+    position: absolute;
+    top: 30%;
+    left: 75%;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.home-hero-overlay:hover {
+    background-color: #69696980;
+}
+
+/* ===================== */
+/* About Section         */
+/* ===================== */
+
+.home-about {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -21,14 +49,14 @@
     background-color: #3d4a3e;
 }
 
-.general-flex-main-row {
+.home-about-row {
     display: flex;
     flex: 1;
     height: 100vh;
     align-items: center;
 }
 
-.general-flex-left {
+.home-about-left {
     background-color: #3d4a3e;
     width: 55%;
     height: 100%;
@@ -37,88 +65,22 @@
     color: white;
 }
 
-.general-flex-right-wrapper {
-    width: 45%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.general-frame-top {
-    background-color: #3d4a3e;
-    flex: 1;
-}
-
-.general-frame-bottom {
-    background-color: #3d4a3e;
-    flex: 1;
-}
-
-.general-frame-middle {
-    display: flex;
-    flex-direction: row;
-    height: 60%;
-}
-
-.general-frame-side-right {
-    background-color: #3d4a3e;
-    flex: 1;
-}
-
-.general-flex-right {
-    width: 80%;
-    background-color: transparent;
-    border: 2px solid white;
-}
-
-.general-frame-img {
-    display: none;
-}
-
-/* ===================== */
-/* Component Styles      */
-/* ===================== */
-
-.my-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-.overlay-text {
-    position: absolute;
-    top: 30%;
-    left: 75%;
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    width: 180px;
-    text-align: center;
-    border: 2px solid white;
-}
-
-.overlay-text:hover {
-    background-color: #69696980;
-}
-
-/* ===================== */
-/* Utility Classes       */
-/* ===================== */
-
-.general-flex-text {
+.home-about-text {
     margin-left: 10%;
     margin-right: 10%;
     color: white;
 }
 
-.general-text-body {
+.home-about-heading {
+    font-size: 60px;
+}
+
+.home-about-body {
     font-size: 20px;
     margin-top: 5vh;
 }
 
-.general-button {
+.home-about-button {
     padding: 10px;
     background-color: white;
     margin-top: 5%;
@@ -128,96 +90,155 @@
     width: fit-content;
 }
 
-.general-button:hover {
+.home-about-button:hover {
     cursor: grab;
 }
 
-.general-flex-header {
-    font-size: 60px;
+/* ===================== */
+/* About Section Frame   */
+/* ===================== */
+
+.home-about-right-wrapper {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.horizontal-bar-white {
+.home-frame-top {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.home-frame-bottom {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.home-frame-middle {
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+}
+
+.home-frame-side-left {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.home-frame-side-right {
+    background-color: #3d4a3e;
+    flex: 1;
+}
+
+.home-frame-inner {
+    width: 80%;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.home-frame-img {
+    display: none;
+}
+
+/* ===================== */
+/* Collections Section   */
+/* ===================== */
+
+.home-collections {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+}
+
+/* ===================== */
+/* Dividers              */
+/* ===================== */
+
+.divider-white {
     width: 100%;
     height: 2px;
     background-color: white;
 }
 
-.horizontal-bar-black {
+.divider-black {
     width: 100%;
     height: 1px;
     background-color: black;
 }
 
 /* ===================== */
-/* Responsive Queries    */
+/* Responsive            */
 /* ===================== */
 
 @media (max-width: 850px) {
-    .overlay-text {
+    .home-hero-overlay {
         left: 30%;
         top: 30%;
     }
 }
 
 @media (max-width: 800px) {
-    .general-flex-full {
+    .home-about {
         height: auto;
     }
 
-    .general-flex-main-row {
+    .home-about-row {
         flex-direction: column;
         height: auto;
     }
 
-    .general-flex-left {
+    .home-about-left {
         width: 100%;
         height: auto;
     }
 
-    .general-flex-right-wrapper {
+    .home-about-right-wrapper {
         width: 100%;
-        height: 40vh;
+        height: 55vh;
     }
 
-    .general-frame-middle {
+    .home-frame-middle {
         height: 70%;
     }
 
-    .general-flex-right {
+    .home-frame-inner {
         width: 80%;
     }
 
-    .general-frame-top {
+    .home-frame-top {
         display: block;
         flex: 1;
         max-height: 20px;
     }
 
-    .general-frame-bottom {
+    .home-frame-bottom {
         display: block;
         flex: 1;
         width: 100%;
     }
 
-    .general-frame-side-right {
+    .home-frame-side-right {
         display: block;
         flex: 1;
     }
 
-    .general-frame-side-left {
+    .home-frame-side-left {
         display: block;
         flex: 1;
         background-color: #3d4a3e;
     }
 
-    .general-flex-text {
+    .home-about-text {
         margin: 0;
         padding: 5vh 10%;
     }
 }
 
-@media (max-width: 510px) {
-    .general-frame-img {
+@media (max-width: 600px) {
+    .home-frame-img {
         display: block;
         width: 100%;
         height: 100%;
