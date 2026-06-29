@@ -32,7 +32,7 @@ const sections = [
     image: FilmCover,
     title: "Film",
     link: "/media/film",
-    description: ``
+    description: `You can't beat that color.`
   },
 ];
 
