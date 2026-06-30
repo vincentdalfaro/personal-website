@@ -193,10 +193,12 @@
 
 .collection-item-image{
     height: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 }
 
 .collections-subheader{
-    font-size: 35px;
+    font-size: 25px;
+    color: white;
 }
 
 

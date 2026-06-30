@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import TennisCourt from "../assets/cover-photos/bee.jpg";
 import Polaroid from "../assets/cover-photos/polaroid.jpg"
 import Digital from "../assets/cover-photos/digital.jpg"
+import Face from "../assets/cover-photos/face.jpg"
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -108,6 +109,12 @@ const HomePage = () => {
             <img src={Digital} className='collection-item-image' />
             <div className='collections-subheader'> Digital </div>
           </Link>
+
+          <Link to="/collections/digital" className='collections-image-box'>
+            <img src={Face} className='collection-item-image' />
+            <div className='collections-subheader'> Faces </div>
+          </Link>
+
         </div>
       </div>
 
