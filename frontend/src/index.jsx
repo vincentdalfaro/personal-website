@@ -48,6 +48,7 @@ root.render(
       } />
         <Route path = "/collections/polaroids" element={<Collection folder="personal_website/polaroids" altPrefix="Polaroid" />} />
         <Route path = "/collections/digital" element={<Collection folder="personal_website/digital" altPrefix="Digital" />} />
+        <Route path = "/collections/faces" element={<Collection folder="personal_website/faces" altPrefix="Faces" />} />
         <Route path = "/professional" element = {<ProfessionalPage/>}/>
         <Route path = "/projects" element = {<ProjectPage/>}/>
       </Routes>

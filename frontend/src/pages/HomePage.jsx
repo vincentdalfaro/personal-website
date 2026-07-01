@@ -110,7 +110,7 @@ const HomePage = () => {
             <div className='collections-subheader'> Digital </div>
           </Link>
 
-          <Link to="/collections/digital" className='collections-image-box'>
+          <Link to="/collections/faces" className='collections-image-box'>
             <img src={Face} className='collection-item-image' />
             <div className='collections-subheader'> Faces </div>
           </Link>

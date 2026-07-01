@@ -177,6 +177,7 @@
 .collections-header {
     font-size: 80px;
     width: 100%;
+    margin-bottom: 5dvh;
     text-align: center;
 }
 
